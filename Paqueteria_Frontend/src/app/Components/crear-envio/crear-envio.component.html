@@ -1,0 +1,119 @@
+<form [formGroup]="createShipForm" (ngSubmit)="onSubmit()">
+
+    <div class="container">
+        <br><br><br><br><br>
+            <!-- Otros campos de formulario si los tienes -->
+            <div class="centered-content" formGroupName="ships">
+                
+    
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                Sucursal Origen:
+                            </th>
+                            <th >
+                                <select class="custom-select" id="sucursal_origen_id" formControlName="sucursal_origen_id">
+                                    <option [ngValue]="1" >Xela</option>
+                                    <option [ngValue]="2" >Peten</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <br>
+                        </tr>
+                        <tr>
+                            <th>
+                                Sucursal Destiono:
+                            </th>
+                            <th >
+                                <select class="custom-select" id="sucursal_destino_id" formControlName="sucursal_destino_id">
+                                    <option [ngValue]="1" >Huehuetenango</option>
+                                    <option [ngValue]="2" >Escuintla</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Cantidad de paquetes:
+                            </th>
+                            <th >
+                                <input type="number" class="form-control" formControlName="cantidad_paquetes">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Peso (lb):
+                            </th>
+                            <th >
+                                <input type="number" class="form-control"  step ="1.00" formControlName="peso">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Fecha Envio:
+                            </th>
+                            <th >
+                                <input type="date" class="form-control" formControlName="peso">
+                            </th>
+                        </tr>
+                        
+    
+                        
+    
+                        
+
+    
+                        
+                        <tr>
+                            <th></th>
+                            <th><button class="btn btn-info"  type="submit">Enviar</button></th>
+                        </tr>
+                        
+                        <tr>
+                            <div *ngIf="flag == true" class="alert alert-success" role="alert">
+                                <h4 class="alert-heading">Bien hecho!</h4>
+                                <p>Envio exitoso</p>
+                                <hr>
+                                <p class="mb-0"></p>
+                              </div>
+    
+                        </tr>
+    
+    
+    
+    
+    
+    
+    
+    
+                    </tbody>
+                </table>
+    
+                
+    
+                
+    
+                
+          
+             
+                
+    
+    
+    
+    
+    
+    
+    
+            </div>
+            
+          
+    </div>
+    
+    </form>
