@@ -1,20 +1,11 @@
-<div [ngClass]="{'light-mode': !isDarkMode, 'dark-mode': isDarkMode}">
-    <!-- Botón de deslizamiento para cambiar entre modos -->
-    <div class="toggle-container">
-        <label class="switch">
-          <input type="checkbox" (change)="toggleDarkMode()">
-          <span class="slider round"></span>
-        </label>
-        <span>{{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}</span>
-      </div>
-<form [formGroup]="createShipForm" (ngSubmit)="onSubmit()" >
+<form [formGroup]="personalForm" (ngSubmit)="onSubmit()">
 
     <div class="container">
         <br><br><br><br><br>
             <!-- Otros campos de formulario si los tienes -->
-            <div class="centered-content" formGroupName="ships">
-                
-                <h2>Crear envio</h2>
+            <div class="centered-content" formGroupName="personal">
+                <h2>Agregar personal</h2>
+    
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -25,10 +16,10 @@
                     <tbody>
                         <tr>
                             <th>
-                                Sucursal Origen:
+                                Sucursal:
                             </th>
                             <th >
-                                <select class="custom-select" id="sucursal_origen_id" formControlName="sucursal_origen_id">
+                                <select class="custom-select" id="sucursal_id" required formControlName="sucursal_id">
                                     <option [ngValue]="1" >Xela</option>
                                     <option [ngValue]="2" >Peten</option>
                                 </select>
@@ -39,46 +30,39 @@
                         </tr>
                         <tr>
                             <th>
-                                Sucursal Destiono:
+                                Nombre:
                             </th>
                             <th >
-                                <select class="custom-select" id="sucursal_destino_id" formControlName="sucursal_destino_id">
-                                    <option [ngValue]="1" >Huehuetenango</option>
-                                    <option [ngValue]="2" >Escuintla</option>
+                                <input type="text" class="form-control" required  formControlName="nombre" placeholder="Jhon">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Appelido:
+                            </th>
+                            <th >
+                                <input type="text" class="form-control" required formControlName="apellido" placeholder="Guzman">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Rol:
+                            </th>
+                            <th >
+                                <select class="custom-select" id="sucursal_id" required formControlName="sucursal_id">
+                                    <option [ngValue]="1" >Secretaria/o</option>
+                                    <option [ngValue]="2" >Bodega</option>
+                                    <option [ngValue]="3" >Conserje</option>
+                                    <option [ngValue]="4" >Operacion de logistica</option>
+                                    <option [ngValue]="5" >Guardia</option>
+                                    <option [ngValue]="6" >Piloto</option>
+                                    <option [ngValue]="7" >Auxiliar piloto</option>
+                                    <option [ngValue]="8" >Gerente</option>
                                 </select>
                             </th>
                         </tr>
-                        <tr>
-                            <th>
-                                Cantidad de paquetes:
-                            </th>
-                            <th >
-                                <input type="number" class="form-control" min="1" step ="1" formControlName="cantidad_paquetes">
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>
-                                Peso (lb):
-                            </th>
-                            <th >
-                                <input type="number" class="form-control" min="0.00" step ="1.00" formControlName="peso">
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>
-                                Fecha Envio:
-                            </th>
-                            <th >
-                                <input type="date" class="form-control" formControlName="peso">
-                            </th>
-                        </tr>
-                        
-    
-                        
-    
-                        
 
-    
+
                         
                         <tr>
                             <th></th>
@@ -86,9 +70,15 @@
                         </tr>
                         
                         <tr>
-                            <div *ngIf="flag == true" class="alert alert-success" role="alert">
+                            <div *ngIf="flag == 2" class="alert alert-success" role="alert">
                                 <h4 class="alert-heading">Bien hecho!</h4>
                                 <p>Envio exitoso</p>
+                                <hr>
+                                <p class="mb-0"></p>
+                              </div>
+                              <div *ngIf="flag == 1" class="alert alert-danger" role="alert">
+                                <h4 class="alert-heading">Llena los todos los campos!</h4>
+                                <p>sin enviar</p>
                                 <hr>
                                 <p class="mb-0"></p>
                               </div>
@@ -114,4 +104,3 @@
     </div>
     
     </form>
-    </div>

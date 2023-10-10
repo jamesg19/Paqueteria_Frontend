@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 })
 export class CrearEnvioComponent {
   createShipForm: FormGroup;
+  isDarkMode:boolean=true;
 
   flag: boolean = false;
   
@@ -41,5 +42,10 @@ export class CrearEnvioComponent {
 onSubmit(){
 
 }
+
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+  }
 
 }

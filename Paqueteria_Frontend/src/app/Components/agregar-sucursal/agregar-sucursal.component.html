@@ -1,0 +1,118 @@
+<form [formGroup]="sucursalForm" (ngSubmit)="onSubmit()">
+
+    <div class="container">
+        <br><br><br><br><br>
+            <!-- Otros campos de formulario si los tienes -->
+            <div class="centered-content" formGroupName="sucursal">
+                <h2>Agregar sucursal</h2>
+    
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <br>
+                        </tr>
+                        <tr>
+                            <th>
+                                Nombre:
+                            </th>
+                            <th >
+                                <input type="text" class="form-control" required  formControlName="nombre" placeholder="Sucursal x">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Direccion:
+                            </th>
+                            <th >
+                                <input type="text" class="form-control" required formControlName="apellido" placeholder="7 calle 7-31 zona1">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Municipio:
+                            </th>
+                            <th >
+                                <input type="text" class="form-control" required formControlName="municipio" placeholder="Coatepeque">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Departamento:
+                            </th>
+                            <th >
+                                <select class="custom-select" id="departamento_id" required formControlName="departamento_id">
+                                    <option  [ngValue]="1">Guatemala (GU)</option>
+                                    <option  [ngValue]="2">Baja Verapaz (BV)</option>
+                                    <option  [ngValue]="3">Alta Verapaz (AV)</option>
+                                    <option  [ngValue]="4">El Progreso (PR)</option>
+                                    <option  [ngValue]="5">Izabal (IZ)</option>
+                                    <option  [ngValue]="6">Zacapa (ZA)</option>
+                                    <option  [ngValue]="7">Chiquimula (CQ)</option>
+                                    <option  [ngValue]="8">Santa Rosa (SR)</option>
+                                    <option  [ngValue]="9">Jalapa (JA)</option>
+                                    <option  [ngValue]="10">Jutiapa (JU)</option>
+                                    <option  [ngValue]="11">Sacatepequez (SA)</option>
+                                    <option  [ngValue]="12">Chimaltenango (CM)</option>
+                                    <option  [ngValue]="13">Escuintla (ES)</option>
+                                    <option  [ngValue]="14">Suchitepequez (SU)</option>
+                                    <option  [ngValue]="15">Retalhuleu (RE)</option>
+                                    <option  [ngValue]="16">San Marcos (SM)</option>
+                                    <option  [ngValue]="17">Huehuetenango (HU)</option>
+                                    <option  [ngValue]="18">Quetzaltenango (QZ)</option>
+                                    <option  [ngValue]="19">Totonicapan (TO)</option>
+                                    <option  [ngValue]="20">Quiche (QC)</option>
+                                    <option  [ngValue]="21">Solola (SO)</option>
+                                    <option  [ngValue]="22">Peten (PE)</option>
+                                </select>
+                            </th>
+                        </tr>
+
+
+                        
+                        <tr>
+                            <th></th>
+                            <th><button class="btn btn-info"  type="submit">Enviar</button></th>
+                        </tr>
+                        
+                        <tr>
+                            <div *ngIf="flag == 2" class="alert alert-success" role="alert">
+                                <h4 class="alert-heading">Bien hecho!</h4>
+                                <p>Envio exitoso</p>
+                                <hr>
+                                <p class="mb-0"></p>
+                              </div>
+                              <div *ngIf="flag == 1" class="alert alert-danger" role="alert">
+                                <h4 class="alert-heading">Llena los todos los campos!</h4>
+                                <p>sin enviar</p>
+                                <hr>
+                                <p class="mb-0"></p>
+                              </div>
+    
+                        </tr>
+    
+    
+    
+    
+    
+    
+    
+    
+                    </tbody>
+                </table>
+    
+                
+    
+            </div>
+            <app-map></app-map>
+            
+          
+    </div>
+    
+    </form>
