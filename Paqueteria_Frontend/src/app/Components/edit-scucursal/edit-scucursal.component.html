@@ -1,0 +1,87 @@
+
+
+    <div class="container">
+        <br><br><br><br><br>
+
+            <div class="centered-content" >
+                <h2>Listar y editar sucursal</h2>
+    
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                            <th>Municipio</th>
+                            <th>Departamento</th>
+                            <th>Enlace</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <br>
+                        </tr>
+                        <tr *ngFor="let sucursal of sucursales">
+                            <th>
+                                {{sucursal.idSucursal}}
+                            </th>
+
+                            <th>
+                                {{sucursal.nombre}}
+                            </th>
+                            <th>
+                                {{sucursal.direccion}}
+                            </th>
+                            <th>
+                                {{sucursal.municipio.nombre}}
+                            </th>
+                            <th>
+                                {{sucursal.departamento.nombre}}
+                            </th>
+                            <th>
+                                <select  class="custom-select"    >
+                                    <option *ngIf="sucursal.esEnlace == true" selected [value]="true">Activo</option>
+                                    <option *ngIf="sucursal.esEnlace == true"  [value]="false">Inactivo</option>
+
+                                    <option *ngIf="sucursal.esEnlace == false" selected [value]="false">inactivo</option>
+                                    <option *ngIf="sucursal.esEnlace == false"  [value]="true">Activo</option>
+                                    
+                                </select>
+                            </th>
+                            <th>
+
+                                <select  class="custom-select"    >
+                                    <option *ngIf="sucursal.estado == true" selected [value]="true">Activo</option>
+                                    <option *ngIf="sucursal.estado == true"  [value]="false">Inactivo</option>
+
+                                    <option *ngIf="sucursal.estado == false" selected [value]="false">inactivo</option>
+                                    <option *ngIf="sucursal.estado == false"  [value]="true">Activo</option>
+                                    
+                                </select>
+                            </th>
+
+
+                        </tr>
+                        
+                    
+                        
+
+    
+    
+    
+    
+    
+    
+    
+                    </tbody>
+                </table>
+    
+                
+    
+            </div>
+            <app-map></app-map>
+            
+          
+    </div>

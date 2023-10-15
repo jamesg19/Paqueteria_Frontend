@@ -11,6 +11,7 @@ import { AgregarVehiculosComponent } from './Components/agregar-vehiculos/agrega
 import { AgregarPersonalComponent } from './Components/agregar-personal/agregar-personal.component';
 import { AgregarSucursalComponent } from './Components/agregar-sucursal/agregar-sucursal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditScucursalComponent } from './Components/edit-scucursal/edit-scucursal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     MapComponent,
     AgregarVehiculosComponent,
     AgregarPersonalComponent,
-    AgregarSucursalComponent
+    AgregarSucursalComponent,
+    EditScucursalComponent
   ],
   imports: [
     BrowserModule,
