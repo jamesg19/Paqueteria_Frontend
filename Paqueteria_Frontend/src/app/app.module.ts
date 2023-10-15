@@ -10,6 +10,7 @@ import { MapComponent } from './Components/map/map.component';
 import { AgregarVehiculosComponent } from './Components/agregar-vehiculos/agregar-vehiculos.component';
 import { AgregarPersonalComponent } from './Components/agregar-personal/agregar-personal.component';
 import { AgregarSucursalComponent } from './Components/agregar-sucursal/agregar-sucursal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AgregarSucursalComponent } from './Components/agregar-sucursal/agregar-
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule 
   ],
   providers: [],

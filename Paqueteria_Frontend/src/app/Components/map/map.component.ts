@@ -14,31 +14,31 @@ export class MapComponent {
   }
 
   drawMap() {
-    const QZ=1903;
+    const QZ=2;
     anychart.onDocumentReady(function () {
       var dataSet = [
-        {'id': 'GT.BV', 'value': 300},
-        {'id': 'GT.HU', 'value': 230}, 
-        {'id': 'GT.PE', 'value': 240}, 
+        {'id': 'GT.BV', 'value': 0,'fill': '#D3D3D3' },
+        {'id': 'GT.HU', 'value': 0,'fill': '#D3D3D3'}, 
+        {'id': 'GT.PE', 'value': 0,'fill': '#D3D3D3'}, 
         {'id': 'GT.QZ', 'value': QZ, 'fill': '#6BD43A'}, 
-        {'id': 'GT.RE', 'value': 130,'fill': '#D3D3D3'}, 
-        {'id': 'GT.SM', 'value': 190, 'fill': '#D3D3D3'}, 
-        {'id': 'GT.AV', 'value': 100}, 				 
-        {'id': 'GT.CM', 'value': 305},                
-        {'id': 'GT.ES', 'value': 190},
-        {'id': 'GT.GU', 'value': 300},
-        {'id': 'GT.SU', 'value': 230}, 
-        {'id': 'GT.SA', 'value': 240}, 
-        {'id': 'GT.SO', 'value': 275}, 
-        {'id': 'GT.TO', 'value': 130}, 
-        {'id': 'GT.PR', 'value': 190}, 
-        {'id': 'GT.SR', 'value': 100}, 				 
-        {'id': 'GT.IZ', 'value': 305},                
-        {'id': 'GT.CQ', 'value': 190},
-        {'id': 'GT.JA', 'value': 305},                
-        {'id': 'GT.JU', 'value': 190}, 
-        {'id': 'GT.ZA', 'value': 305},                
-        {'id': 'GT.QC', 'value': 190} , 
+        {'id': 'GT.RE', 'value': 0,'fill': '#D3D3D3'}, 
+        {'id': 'GT.SM', 'value': 0, 'fill': '#D3D3D3'}, 
+        {'id': 'GT.AV', 'value': 0,'fill': '#D3D3D3'}, 				 
+        {'id': 'GT.CM', 'value': 0,'fill': '#D3D3D3'},                
+        {'id': 'GT.ES', 'value': 0,'fill': '#D3D3D3'},
+        {'id': 'GT.GU', 'value': 0, 'fill': '#6BD43A'},
+        {'id': 'GT.SU', 'value': 0,'fill': '#D3D3D3'}, 
+        {'id': 'GT.SA', 'value': 0,'fill': '#D3D3D3'}, 
+        {'id': 'GT.SO', 'value': 0,'fill': '#D3D3D3'}, 
+        {'id': 'GT.TO', 'value': 0,'fill': '#D3D3D3'}, 
+        {'id': 'GT.PR', 'value': 0,'fill': '#D3D3D3'}, 
+        {'id': 'GT.SR', 'value': 0,'fill': '#D3D3D3'}, 				 
+        {'id': 'GT.IZ', 'value': 0,'fill': '#D3D3D3'},                
+        {'id': 'GT.CQ', 'value': 0,'fill': '#D3D3D3'},
+        {'id': 'GT.JA', 'value': 0,'fill': '#D3D3D3'},                
+        {'id': 'GT.JU', 'value': 0,'fill': '#D3D3D3'}, 
+        {'id': 'GT.ZA', 'value': 0,'fill': '#D3D3D3'},                
+        {'id': 'GT.QC', 'value': 0,'fill': '#D3D3D3'} , 
       ];
 
       var map = anychart.map();

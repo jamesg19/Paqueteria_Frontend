@@ -31,45 +31,55 @@
                                 Direccion:
                             </th>
                             <th >
-                                <input type="text" class="form-control" required formControlName="apellido" placeholder="7 calle 7-31 zona1">
+                                <input type="text" class="form-control" required formControlName="direccion" placeholder="7 calle 7-31 zona1">
                             </th>
                         </tr>
-                        <tr>
-                            <th>
-                                Municipio:
-                            </th>
-                            <th >
-                                <input type="text" class="form-control" required formControlName="municipio" placeholder="Coatepeque">
-                            </th>
-                        </tr>
+                        
                         <tr>
                             <th>
                                 Departamento:
                             </th>
                             <th >
-                                <select class="custom-select" id="departamento_id" required formControlName="departamento_id">
-                                    <option  [ngValue]="1">Guatemala (GU)</option>
-                                    <option  [ngValue]="2">Baja Verapaz (BV)</option>
-                                    <option  [ngValue]="3">Alta Verapaz (AV)</option>
-                                    <option  [ngValue]="4">El Progreso (PR)</option>
-                                    <option  [ngValue]="5">Izabal (IZ)</option>
-                                    <option  [ngValue]="6">Zacapa (ZA)</option>
-                                    <option  [ngValue]="7">Chiquimula (CQ)</option>
-                                    <option  [ngValue]="8">Santa Rosa (SR)</option>
-                                    <option  [ngValue]="9">Jalapa (JA)</option>
-                                    <option  [ngValue]="10">Jutiapa (JU)</option>
-                                    <option  [ngValue]="11">Sacatepequez (SA)</option>
-                                    <option  [ngValue]="12">Chimaltenango (CM)</option>
-                                    <option  [ngValue]="13">Escuintla (ES)</option>
-                                    <option  [ngValue]="14">Suchitepequez (SU)</option>
-                                    <option  [ngValue]="15">Retalhuleu (RE)</option>
-                                    <option  [ngValue]="16">San Marcos (SM)</option>
-                                    <option  [ngValue]="17">Huehuetenango (HU)</option>
-                                    <option  [ngValue]="18">Quetzaltenango (QZ)</option>
-                                    <option  [ngValue]="19">Totonicapan (TO)</option>
-                                    <option  [ngValue]="20">Quiche (QC)</option>
-                                    <option  [ngValue]="21">Solola (SO)</option>
-                                    <option  [ngValue]="22">Peten (PE)</option>
+                                <select  class="custom-select" id="departamento_id" (change)="getMunicipiosByDeptoId($event)" required formControlName="departamento_id">
+                                    <option *ngFor="let depto of departamentos"  [value]="depto.id">{{depto.nombre}}</option>
+                                    
+                                </select>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                Municipio:
+                            </th>
+                            <th >
+                                <select  class="custom-select" id="municipio_id"  required formControlName="municipio_id">
+                                    <option *ngFor="let muni of municipios"  [value]="muni.id">{{muni.nombre}}</option>
+                                    
+                                </select>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                Es enlace:
+                            </th>
+                            <th >
+                                <select  class="custom-select" id="esEnlace"  required formControlName="esEnlace">
+                                    <option   [value]="true">SI</option>
+                                    <option   [value]="false">NO</option>
+                                    
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Estado:
+                            </th>
+                            <th >
+                                <select  class="custom-select" id="estado"  required formControlName="estado">
+                                    <option   [value]="true">ACTIVA</option>
+                                    <option   [value]="false">INACTIVA</option>
+                                    
                                 </select>
                             </th>
                         </tr>

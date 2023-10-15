@@ -11,6 +11,7 @@ const routes: Routes = [
   {path: 'agregar-vehiculo', component: AgregarVehiculosComponent},
   {path: 'agregar-personal', component: AgregarPersonalComponent},
   {path: 'agregar-sucursal', component: AgregarSucursalComponent},
+  
   {path: 'maps', component: MapComponent},
 ];
 
