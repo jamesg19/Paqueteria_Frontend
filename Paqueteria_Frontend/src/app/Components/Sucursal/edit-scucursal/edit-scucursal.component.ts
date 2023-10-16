@@ -15,6 +15,27 @@ export class EditScucursalComponent {
     this.getSucursales();
   }
 
+  updateSucursal(id:number){
+   
+    const estado = document.getElementById("estado-"+id) as HTMLInputElement;
+    const enlace = document.getElementById("enlace-"+id) as HTMLInputElement;
+    alert(enlace.value+" "+estado.value)
+    let sucursal:Sucursal=new Sucursal();
+
+    sucursal.idSucursal=id;
+
+    if(sucursal.estado+""==="true"){
+    
+    }
+
+    
+
+  }
+  private getValorBoolean(val:string){
+
+    
+  }
+
 
 
   getSucursales(){

@@ -4,8 +4,9 @@ import { CrearEnvioComponent } from './Components/crear-envio/crear-envio.compon
 import { MapComponent } from './Components/map/map.component';
 import { AgregarVehiculosComponent } from './Components/agregar-vehiculos/agregar-vehiculos.component';
 import { AgregarPersonalComponent } from './Components/agregar-personal/agregar-personal.component';
-import { AgregarSucursalComponent } from './Components/agregar-sucursal/agregar-sucursal.component';
-import { EditScucursalComponent } from './Components/edit-scucursal/edit-scucursal.component';
+import { AgregarSucursalComponent } from './Components/Sucursal/agregar-sucursal/agregar-sucursal.component';
+import { EditScucursalComponent } from './Components/Sucursal/edit-scucursal/edit-scucursal.component';
+import { EditarRutaComponent } from './Components/Rutas/editar-ruta/editar-ruta.component';
 
 const routes: Routes = [
   {path: 'create_ship', component: CrearEnvioComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'agregar-personal', component: AgregarPersonalComponent},
   {path: 'agregar-sucursal', component: AgregarSucursalComponent},
   {path: 'editar-sucursal', component: EditScucursalComponent},
+  {path: 'editar-ruta', component: EditarRutaComponent},
   //editar-sucursal
   
   {path: 'maps', component: MapComponent},

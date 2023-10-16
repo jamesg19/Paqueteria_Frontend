@@ -9,9 +9,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MapComponent } from './Components/map/map.component';
 import { AgregarVehiculosComponent } from './Components/agregar-vehiculos/agregar-vehiculos.component';
 import { AgregarPersonalComponent } from './Components/agregar-personal/agregar-personal.component';
-import { AgregarSucursalComponent } from './Components/agregar-sucursal/agregar-sucursal.component';
+import { AgregarSucursalComponent } from './Components/Sucursal/agregar-sucursal/agregar-sucursal.component';
 import { HttpClientModule } from '@angular/common/http';
-import { EditScucursalComponent } from './Components/edit-scucursal/edit-scucursal.component';
+import { EditScucursalComponent } from './Components/Sucursal/edit-scucursal/edit-scucursal.component';
+import { AgregarRutaComponent } from './Components/Rutas/agregar-ruta/agregar-ruta.component';
+import { EditarRutaComponent } from './Components/Rutas/editar-ruta/editar-ruta.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { EditScucursalComponent } from './Components/edit-scucursal/edit-scucurs
     AgregarVehiculosComponent,
     AgregarPersonalComponent,
     AgregarSucursalComponent,
-    EditScucursalComponent
+    EditScucursalComponent,
+    AgregarRutaComponent,
+    EditarRutaComponent
   ],
   imports: [
     BrowserModule,

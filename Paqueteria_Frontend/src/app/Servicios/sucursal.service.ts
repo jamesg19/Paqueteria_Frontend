@@ -25,6 +25,11 @@ export class SucursalService {
     return this.httpClient.get<Sucursalespageable>(sucursalUrl);
   }
 
+
+  updateSucursal(event:any){
+
+  }
+
   
 }
 

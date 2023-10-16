@@ -14,8 +14,9 @@
                             <th>Direccion</th>
                             <th>Municipio</th>
                             <th>Departamento</th>
-                            <th>Enlace</th>
-                            <th>Estado</th>
+                            <th>Enlace&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                            <th>Estado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                            <th>Accion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,7 +42,7 @@
                                 {{sucursal.departamento.nombre}}
                             </th>
                             <th>
-                                <select  class="custom-select"    >
+                                <select  class="custom-select"  [id]="'enlace-' + sucursal.idSucursal"  >
                                     <option *ngIf="sucursal.esEnlace == true" selected [value]="true">Activo</option>
                                     <option *ngIf="sucursal.esEnlace == true"  [value]="false">Inactivo</option>
 
@@ -52,14 +53,17 @@
                             </th>
                             <th>
 
-                                <select  class="custom-select"    >
+                                <select  class="custom-select" [id]="'estado-' + sucursal.idSucursal"    >
                                     <option *ngIf="sucursal.estado == true" selected [value]="true">Activo</option>
                                     <option *ngIf="sucursal.estado == true"  [value]="false">Inactivo</option>
 
-                                    <option *ngIf="sucursal.estado == false" selected [value]="false">inactivo</option>
+                                    <option *ngIf="sucursal.estado == false" selected [value]="false">Inactivo</option>
                                     <option *ngIf="sucursal.estado == false"  [value]="true">Activo</option>
                                     
                                 </select>
+                            </th>
+                            <th>
+                                <button type="button" (click)="updateSucursal(sucursal.idSucursal)" class="btn btn-warning">Guardar</button>
                             </th>
 
 

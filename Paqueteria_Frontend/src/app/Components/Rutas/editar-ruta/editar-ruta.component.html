@@ -1,0 +1,55 @@
+
+
+<div class="container">
+    <br><br><br><br><br>
+
+        <div class="centered-content" >
+            <h2>Listar y editar ruta</h2>
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Distancia</th>
+                        <th>Dias</th>
+                        <th>Costo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <br>
+                    </tr>
+                    <tr *ngFor="let ruta of rutas">
+                        <th>
+                            {{ruta.origen.nombre}}, {{ruta.origen.municipio.nombre}}, {{ruta.origen.departamento.nombre}}
+                        </th>
+
+                        <th>
+                            {{ruta.destino.nombre}}, {{ruta.destino.municipio.nombre}} {{ruta.destino.departamento.nombre}}
+                        </th>
+                        <th>
+                            {{ruta.distancia}}
+                        </th>
+                        <th>
+                            {{ruta.dias}}
+                        </th>
+                        <th>
+                            {{ruta.costo}}
+                        </th>
+
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+            
+
+        </div>
+        <app-map></app-map>
+        
+      
+</div>
