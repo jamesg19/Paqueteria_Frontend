@@ -23,17 +23,29 @@ export class EditScucursalComponent {
     let sucursal:Sucursal=new Sucursal();
 
     sucursal.idSucursal=id;
+    sucursal.estado=this.getValorBoolean(estado.value+"");
+    sucursal.esEnlace=this.getValorBoolean(enlace.value+"");
 
-    if(sucursal.estado+""==="true"){
-    
-    }
+    this.sucursalService.saveSucursal(sucursal).subscribe(
+      data=>{
+        alert("Succesfull...")
+
+      }, error=>{
+
+      }
+    )
 
     
 
   }
   private getValorBoolean(val:string){
+    console.log(val);
+    if(val+""==="true"){
+      return true;
+    }else{
+      return false
+    }
 
-    
   }
 
 
@@ -42,7 +54,7 @@ export class EditScucursalComponent {
     this.sucursalService.getSucursales().subscribe(
         data=>{
           this.sucursales=data.content
-          console.log(JSON.stringify(data.content));
+          //console.log(JSON.stringify(data.content));
 
 
         }, error=>{
