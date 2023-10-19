@@ -30,7 +30,7 @@ export class SucursalService {
 
   }
 
-  
+
 }
 
 export interface Sucursalespageable {

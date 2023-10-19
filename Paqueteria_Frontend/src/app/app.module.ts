@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditScucursalComponent } from './Components/Sucursal/edit-scucursal/edit-scucursal.component';
 import { AgregarRutaComponent } from './Components/Rutas/agregar-ruta/agregar-ruta.component';
 import { EditarRutaComponent } from './Components/Rutas/editar-ruta/editar-ruta.component';
+import { UsuarioModalComponent } from './UsuarioModal/usuarioModal.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { EditarRutaComponent } from './Components/Rutas/editar-ruta/editar-ruta.
     AgregarSucursalComponent,
     EditScucursalComponent,
     AgregarRutaComponent,
-    EditarRutaComponent
+    EditarRutaComponent,
+    UsuarioModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
