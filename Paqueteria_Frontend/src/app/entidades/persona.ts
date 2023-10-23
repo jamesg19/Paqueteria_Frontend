@@ -1,9 +1,18 @@
 
 export class Persona{
-    idPersona:number;
-    nombre:String;
+    id:number;
+    nombre:string;
     edad:number;
-    domicilio:String;
+    domicilio:string;
     celular:string;
     nit:string;
+
+    constructor() {
+      this.id = 0;
+      this.nombre = '';
+      this.edad = 0;
+      this.domicilio = '';
+      this.celular = '';
+      this.nit = '';
+    }
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpStatusCode} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/enviroments/enviroment';
 import { Persona } from '../entidades/persona';
@@ -7,18 +7,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PersonaService {
-  private baseUrl:string=environment.MyAppApiUrl;
+  private baseUrl:string=environment.MyAppApiUrl + "/personas";
 
   constructor(private httpClient: HttpClient) { }
 
-  getPersonaNit(nit:String): Observable<Persona>{
-    const personaUrl = `${this.baseUrl}/personas/get_persona_nit?nit=`+nit;
+  getPersonaNit(nit): Observable<Persona>{
+    const personaUrl = `${this.baseUrl}/get_persona_nit?nit=${nit}`;
     return this.httpClient.get<Persona>(personaUrl);
   }
+  getPersonas():Observable<Persona[]>{
+    const personaUrl = `${this.baseUrl}/get_personas`;
+    return this.httpClient.get<Persona[]>(personaUrl);
 
-  save(persona:Persona){
-    const url=environment.MyAppApiUrl+"/persona/save_persona";
-    console.log(persona+"\nEs lo que envia a post");
-    return this.httpClient.post(url,persona);
+  }
+  save(persona:Persona):Observable<any>{
+    return this.httpClient.post<any>(`${this.baseUrl}/save_persona`, persona);
+  }
+
+  editar(persona:Persona):Observable<any>{
+    return this.httpClient.put<any>(`${this.baseUrl}/editar_persona`, persona);
   }
 }
