@@ -31,6 +31,7 @@ export class DepartamentoService {
     // need to build URL based on product id
     const departamentoUrl = `${this.baseUrl}/municipios/get_municipios?id=${id}`;
     return this.httpClient.get<Municipio[]>(departamentoUrl);
+    
   }
 
 }

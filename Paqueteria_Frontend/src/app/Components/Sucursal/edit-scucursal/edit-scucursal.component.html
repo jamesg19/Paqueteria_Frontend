@@ -14,6 +14,8 @@
                             <th>Direccion</th>
                             <th>Municipio</th>
                             <th>Departamento</th>
+                            <th>Longitud</th>
+                            <th>latitud</th>
                             <th>Enlace&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                             <th>Estado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                             <th>Accion</th>
@@ -41,6 +43,15 @@
                             <th>
                                 {{sucursal.departamento.nombre}}
                             </th>
+                            
+                            <th>
+                                <input type="number"   [id]="'longitud-' + sucursal.idSucursal" value="{{sucursal.longitud}}" >
+                                  
+                            </th>
+                            <th>
+                                <input type="number"   [id]="'latitud-' + sucursal.idSucursal" value="{{sucursal.latitud}}" >
+                                  
+                            </th>
                             <th>
                                 <select  class="custom-select"  [id]="'enlace-' + sucursal.idSucursal"  >
                                     <option *ngIf="sucursal.esEnlace == true" selected [value]="true">Activo</option>
@@ -51,6 +62,7 @@
                                     
                                 </select>
                             </th>
+
                             <th>
 
                                 <select  class="custom-select" [id]="'estado-' + sucursal.idSucursal"    >

@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditScucursalComponent } from './Components/Sucursal/edit-scucursal/edit-scucursal.component';
 import { AgregarRutaComponent } from './Components/Rutas/agregar-ruta/agregar-ruta.component';
 import { EditarRutaComponent } from './Components/Rutas/editar-ruta/editar-ruta.component';
+import { MapaCoordenadaComponent } from './Components/mapa-coordenada/mapa-coordenada.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EditarRutaComponent } from './Components/Rutas/editar-ruta/editar-ruta.
     AgregarSucursalComponent,
     EditScucursalComponent,
     AgregarRutaComponent,
-    EditarRutaComponent
+    EditarRutaComponent,
+    MapaCoordenadaComponent
   ],
   imports: [
     BrowserModule,

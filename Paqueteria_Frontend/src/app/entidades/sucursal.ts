@@ -11,5 +11,13 @@ export class Sucursal {
     nombre:string;
     esEnlace:boolean;
     estado:boolean;
+    longitud:number;
+    latitud:number;
 
 }
+
+export class SucursalesDepto {
+    idDepartamento: number;
+    idDepartamento1: string;
+    cantidadSucursales: number;
+  }
