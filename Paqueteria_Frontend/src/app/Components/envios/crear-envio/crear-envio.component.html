@@ -13,41 +13,42 @@
         <br><br><br><br><br>
             <!-- Otros campos de formulario si los tienes -->
             <div class="centered-content" formGroupName="ships">
-                
+
                 <h2>Crear envio</h2>
                 <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
+
                     <tbody>
+
+                        <tr>
+                          <th>
+                            Nit emisor:
+                            <input id="nombre_emisor" type="text" class="form-control" formControlName="nit_emisor" (blur)="buscarPersonaEmisor()">
+                            Nombre:
+                            <label [textContent]="nombre_emisor">Nombre:</label>
+                          </th>
+                          <th>
+                            Nit receptor:
+                            <input id="nombre_receptor" type="text" class="form-control"  formControlName="nit_receptor" (blur)="buscarPersonaReceptor()">
+                            Nombre:
+                            <label [textContent]="nombre_receptor"></label>
+                            </th>
+                        </tr>
+
                         <tr>
                             <th>
                                 Sucursal Origen:
-                            </th>
-                            <th >
                                 <select class="custom-select" id="sucursal_origen_id" formControlName="sucursal_origen_id">
-                                    <option [ngValue]="1" >Xela</option>
-                                    <option [ngValue]="2" >Peten</option>
+                                    <option *ngFor="let sucursal of sucursales" [ngValue]="sucursal.idSucursal">{{sucursal.nombre}}</option>
                                 </select>
                             </th>
-                        </tr>
-                        <tr>
-                            <br>
-                        </tr>
-                        <tr>
                             <th>
-                                Sucursal Destiono:
-                            </th>
-                            <th >
+                                Sucursal Destion:
                                 <select class="custom-select" id="sucursal_destino_id" formControlName="sucursal_destino_id">
-                                    <option [ngValue]="1" >Huehuetenango</option>
-                                    <option [ngValue]="2" >Escuintla</option>
+                                  <option *ngFor="let sucursal of sucursales" [ngValue]="sucursal.idSucursal">{{sucursal.nombre}}</option>
                                 </select>
                             </th>
                         </tr>
+                        <br>
                         <tr>
                             <th>
                                 Cantidad de paquetes:
@@ -72,46 +73,38 @@
                                 <input type="date" class="form-control" formControlName="peso">
                             </th>
                         </tr>
-                        
-    
-                        
-    
-                        
 
-    
-                        
+
+
+
+
+
+
+
                         <tr>
                             <th></th>
-                            <th><button class="btn btn-info"  type="submit">Enviar</button></th>
+                            <th><button class="btn btn-info"  type="submit" [disabled]="createShipForm.invalid">Enviar</button></th>
                         </tr>
-                        
-                        <tr>
-                            <div *ngIf="flag == true" class="alert alert-success" role="alert">
-                                <h4 class="alert-heading">Bien hecho!</h4>
-                                <p>Envio exitoso</p>
-                                <hr>
-                                <p class="mb-0"></p>
-                              </div>
-    
-                        </tr>
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
                     </tbody>
+                  <label>{{resultado}}</label>
                 </table>
-    
-                
-    
+
+
+
             </div>
             <app-map></app-map>
-            
-          
+
+
     </div>
-    
+
     </form>
     </div>

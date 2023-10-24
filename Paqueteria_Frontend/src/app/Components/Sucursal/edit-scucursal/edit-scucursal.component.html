@@ -5,7 +5,7 @@
 
             <div class="centered-content" >
                 <h2>Listar y editar sucursal</h2>
-    
+
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         <tr>
                             <br>
                         </tr>
@@ -30,7 +30,6 @@
                             <th>
                                 {{sucursal.idSucursal}}
                             </th>
-
                             <th>
                                 {{sucursal.nombre}}
                             </th>
@@ -59,7 +58,7 @@
 
                                     <option *ngIf="sucursal.esEnlace == false" selected [value]="false">inactivo</option>
                                     <option *ngIf="sucursal.esEnlace == false"  [value]="true">Activo</option>
-                                    
+
                                 </select>
                             </th>
 
@@ -71,7 +70,7 @@
 
                                     <option *ngIf="sucursal.estado == false" selected [value]="false">Inactivo</option>
                                     <option *ngIf="sucursal.estado == false"  [value]="true">Activo</option>
-                                    
+
                                 </select>
                             </th>
                             <th>
@@ -80,24 +79,24 @@
 
 
                         </tr>
-                        
-                    
-                        
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
                     </tbody>
                 </table>
-    
-                
-    
+
+
+
             </div>
             <app-map></app-map>
-            
-          
+
+
     </div>

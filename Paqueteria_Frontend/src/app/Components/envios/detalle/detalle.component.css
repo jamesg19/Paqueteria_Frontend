@@ -1,0 +1,76 @@
+.tablaSucursalOrigen{
+  background-color: #FF9B6B;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tablaSucursalOrigen th, .tablaSucursalOrigen td{
+  border:1px solid #000000;
+  padding: 8px;
+  text-align: left;
+}
+
+.tablaSucursalOrigen th{
+  background-color: #FFCB6B;
+}
+
+.tablaSucursalDestino{
+  background-color: #ABEAFF;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tablaSucursalDestino th, .tablaSucursalDestino td{
+  border:1px solid #000000;
+  padding: 8px;
+  text-align: left;
+}
+
+.tablaSucursalDestino th{
+  background-color: #AAFFF9;
+}
+
+.tablaPersonaEmisor{
+  background-color: #F5CDBA;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tablaPersonaEmisor th, .tablaPersonaEmisor td{
+border:1px solid #000000;
+  padding: 8px;
+  text-align: left;
+}
+
+.tablaPersonaEmisor th{
+  background-color: #BAD6E2;
+}
+
+.tablaPersonaReceptor{
+  background-color: #86A090;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tablaPersonaReceptor th, .tablaPersonaReceptor td{
+  border:1px solid #000000;
+  padding: 8px;
+  text-align: left;
+}
+
+.tablaPersonaReceptor th{
+  background-color: #B5A09F;
+}
+
+div{
+  border: 2px;
+  padding: 6px;
+}

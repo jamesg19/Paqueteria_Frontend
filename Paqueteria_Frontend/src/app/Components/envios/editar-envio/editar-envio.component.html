@@ -1,0 +1,73 @@
+<div class="container">
+  <br><br><br><br><br>
+
+  <div class="centered-content" >
+    <h2>Listar y editar envio</h2>
+
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>envio Origen</th>
+        <th>envio Destino</th>
+        <th>Nit Emisor</th>
+        <th>Nit Receptor</th>
+        <th>Fecha llegada</th>
+        <th>Sub total</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr>
+        <br>
+      </tr>
+      <tr *ngFor="let envio of envios">
+        <th>
+          {{envio.id}}
+        </th>
+        <th>
+          {{envio.idSucursalOrigen}}
+        </th>
+        <th>
+          {{envio.idSucursalDestino}}
+        </th>
+        <th>
+          {{envio.nitEmisor}}
+          <br>
+        </th>
+        <th>
+          {{envio.nitReceptor}}
+        </th>
+        <th>
+          {{envio.fechaLlegada}}
+        </th>
+        <th>
+          {{envio.subTotal}}
+        </th>
+        <th>
+          <button type="button"  class="btn btn-warning" (click)="abrirDialogo(envio)">Detalle</button>
+        </th>
+
+
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+      </tbody>
+    </table>
+
+
+
+  </div>
+  <app-map></app-map>
+
+
+</div>

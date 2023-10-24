@@ -5,7 +5,7 @@
             <!-- Otros campos de formulario si los tienes -->
             <div class="centered-content" formGroupName="sucursal">
                 <h2>Agregar sucursal</h2>
-    
+
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -14,7 +14,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         <tr>
                             <br>
                         </tr>
@@ -34,7 +34,7 @@
                                 <input type="text" class="form-control" required formControlName="direccion" placeholder="7 calle 7-31 zona1">
                             </th>
                         </tr>
-                        
+
                         <tr>
                             <th>
                                 Departamento:
@@ -42,7 +42,7 @@
                             <th >
                                 <select  class="custom-select" id="departamento_id" (change)="getMunicipiosByDeptoId($event)" required formControlName="departamento_id">
                                     <option *ngFor="let depto of departamentos"  [value]="depto.id">{{depto.nombre}}</option>
-                                    
+
                                 </select>
                             </th>
                         </tr>
@@ -54,7 +54,7 @@
                             <th >
                                 <select  class="custom-select" id="municipio_id"  required formControlName="municipio_id">
                                     <option *ngFor="let muni of municipios"  [value]="muni.id">{{muni.nombre}}</option>
-                                    
+
                                 </select>
                             </th>
                         </tr>
@@ -67,7 +67,7 @@
                                 <select  class="custom-select" id="esEnlace"  required formControlName="esEnlace">
                                     <option   [value]="true">SI</option>
                                     <option   [value]="false">NO</option>
-                                    
+
                                 </select>
                             </th>
                         </tr>
@@ -79,7 +79,7 @@
                                 <select  class="custom-select" id="estado"  required formControlName="estado">
                                     <option   [value]="true">ACTIVA</option>
                                     <option   [value]="false">INACTIVA</option>
-                                    
+
                                 </select>
                             </th>
                         </tr>
@@ -101,12 +101,12 @@
                         </tr>
 
 
-                        
+
                         <tr>
                             <th></th>
                             <th><button class="btn btn-info"  type="submit">Enviar</button></th>
                         </tr>
-                        
+
                         <tr>
                             <div *ngIf="flag == 2" class="alert alert-success" role="alert">
                                 <h4 class="alert-heading">Bien hecho!</h4>
@@ -120,25 +120,25 @@
                                 <hr>
                                 <p class="mb-0"></p>
                               </div>
-    
+
                         </tr>
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
                     </tbody>
                 </table>
-    
-                
-    
+
+
+
             </div>
             <app-map></app-map>
-            
-          
+
+
     </div>
-    
+
     </form>

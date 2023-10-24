@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CrearEnvioComponent } from './Components/crear-envio/crear-envio.component';
+import { CrearEnvioComponent } from './Components/envios/crear-envio/crear-envio.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MapComponent } from './Components/map/map.component';
 import { AgregarVehiculosComponent } from './Components/agregar-vehiculos/agregar-vehiculos.component';
 import { AgregarPersonalComponent } from './Components/agregar-personal/agregar-personal.component';
@@ -15,6 +15,12 @@ import { EditScucursalComponent } from './Components/Sucursal/edit-scucursal/edi
 import { AgregarRutaComponent } from './Components/Rutas/agregar-ruta/agregar-ruta.component';
 import { EditarRutaComponent } from './Components/Rutas/editar-ruta/editar-ruta.component';
 import { MapaCoordenadaComponent } from './Components/mapa-coordenada/mapa-coordenada.component';
+import { UsuarioModalComponent } from './UsuarioModal/usuarioModal.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { EditarPersonaComponent } from './Components/persona/editar-persona/editar-persona.component';
+import { EditarEnvioComponent } from './Components/envios/editar-envio/editar-envio.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { DetalleComponent } from './Components/envios/detalle/detalle.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +35,20 @@ import { MapaCoordenadaComponent } from './Components/mapa-coordenada/mapa-coord
     AgregarRutaComponent,
     EditarRutaComponent,
     MapaCoordenadaComponent
+    UsuarioModalComponent,
+    EditarPersonaComponent,
+    EditarEnvioComponent,
+    DetalleComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule 
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        MatTooltipModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

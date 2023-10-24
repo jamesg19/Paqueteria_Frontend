@@ -1,0 +1,30 @@
+<form [formGroup]="crearPersonaForm" (ngSubmit)="onSubmit()" >
+<div class="centered-content" formGroupName="persona">
+    <div class="modal-content">
+      <h2>Informacion para registrar a una nueva persona</h2>
+        <div class="form-group">
+            <label for="nit">Nit:</label>
+          <input id="nit" type="number" class="form-control"  formControlName="nit">
+          </div>
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input id="nombre" type="text" class="form-control"  formControlName="nombre">
+        </div>
+        <div class="form-group">
+          <label for="edad">Edad:</label>
+          <input id="edad" type="number" class="form-control"  formControlName="edad">
+        </div>
+        <div class="form-group">
+          <label for="direccion">Dirección:</label>
+          <input id="direccion" type="text" class="form-control"  formControlName="direccion">
+        </div>
+        <div class="form-group">
+          <label for="celular">Celular:</label>
+          <input id="celular" type="text" class="form-control"  formControlName="celular">
+        </div>
+        <button type="submit" [disabled]="crearPersonaForm.invalid">Registrar</button>
+    </div>
+  </div>
+</form>
+
+<label>{{resultado}}</label>

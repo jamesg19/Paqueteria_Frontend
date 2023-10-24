@@ -1,0 +1,94 @@
+
+      <h2>Detalle Envio</h2>
+      <div>
+        <table class="tablaSucursalOrigen">
+          <thead>
+          <label>Sucursal Origen</label>
+            <tr>
+              <th>Nombre</th>
+              <th>Direccion</th>
+              <th>Municipio</th>
+              <th>Departamento</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th>{{sucursalOrigen.nombre}}</th>
+            <th>{{sucursalOrigen.direccion}}</th>
+            <th>{{sucursalOrigen.municipio.nombre}}</th>
+            <th>{{sucursalOrigen.departamento.nombre}}</th>
+            <th>{{sucursalOrigen.estado}}</th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <table class="tablaSucursalDestino">
+          <thead>
+          <label>Sucursal Destino</label>
+          <tr>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Municipio</th>
+            <th>Departamento</th>
+            <th>Estado</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th>{{sucursalDestino.nombre}}</th>
+            <th>{{sucursalDestino.direccion}}</th>
+            <th>{{sucursalDestino.municipio.nombre}}</th>
+            <th>{{sucursalDestino.departamento.nombre}}</th>
+            <th>{{sucursalDestino.estado}}</th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <table class="tablaPersonaEmisor">
+          <thead>
+          <label>Persona Emisor</label>
+          <tr>
+            <th>Nit</th>
+            <th>Nombre</th>
+            <th>Celular</th>
+            <th>Direccion</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th>{{personaEmisor.nit}}</th>
+            <th>{{personaEmisor.nombre}}</th>
+            <th>{{personaEmisor.celular}}</th>
+            <th>{{personaEmisor.domicilio}}</th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <table class="tablaPersonaReceptor">
+          <thead>
+          <label>Persona Receptor</label>
+          <tr>
+            <th>Nit</th>
+            <th>Nombre</th>
+            <th>Celular</th>
+            <th>Direccion</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th>{{personaReceptor.nit}}</th>
+            <th>{{personaReceptor.nombre}}</th>
+            <th>{{personaReceptor.celular}}</th>
+            <th>{{personaReceptor.domicilio}}</th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+

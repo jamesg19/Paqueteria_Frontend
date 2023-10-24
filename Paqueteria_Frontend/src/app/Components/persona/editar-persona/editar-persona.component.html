@@ -1,0 +1,64 @@
+<div class="container">
+  <br><br><br><br><br>
+<div class="centered-content">
+  <h2>Editar Personas</h2>
+
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Nit</th>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Direccion</th>
+      <th>Celular</th>
+      <th>Accion</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+      <br>
+    </tr>
+      <tr *ngFor="let persona of personas;let i = index" id="{{i}}">
+          <th>
+            {{persona.id}}
+          </th>
+          <th>
+            {{persona.nit}}
+          </th>
+          <th>
+            <label>{{personas[i].nombre}}
+              <br>
+              <input placeholder="Nuevo nombre" [(ngModel)]="personas[i].nombre">
+            </label>
+          </th>
+          <th>
+            <label>{{persona.edad}}
+              <br>
+              <input type="number" placeholder="Nueva edad" [(ngModel)]="personas[i].edad">
+            </label>
+          </th>
+          <th>
+            <label>{{persona.domicilio}}
+              <br>
+              <input placeholder="Nuevo domicilio" [(ngModel)]="personas[i].domicilio">
+            </label>
+          </th>
+          <th>
+            <label>{{persona.celular}}
+              <br>
+              <input placeholder="Nuevo celular" [(ngModel)]="personas[i].celular">
+            </label>
+          </th>
+          <th>
+            <button type="button"  class="btn btn-warning" (click)="editarPersona(persona,i)">Editar</button>
+          </th>
+        <th>
+          <label>{{detalle[i]}}</label>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

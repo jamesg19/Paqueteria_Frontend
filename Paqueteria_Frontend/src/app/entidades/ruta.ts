@@ -1,5 +1,4 @@
 import { Sucursal } from "./sucursal";
-
 export class Ruta {
     id:number;
     origen:Sucursal;

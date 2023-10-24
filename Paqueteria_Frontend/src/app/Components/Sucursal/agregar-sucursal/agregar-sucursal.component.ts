@@ -16,8 +16,8 @@ export class AgregarSucursalComponent {
   flag:number=0;
   departamentos:Departamento[];
   municipios:Municipio[];
-  
-  constructor(private formBuilder: FormBuilder, 
+
+  constructor(private formBuilder: FormBuilder,
     private departamentoService:DepartamentoService,
     private sucursalService:SucursalService){
     this.createForm();
@@ -29,21 +29,23 @@ export class AgregarSucursalComponent {
     this.sucursalForm = this.formBuilder.group({
       sucursal: this.formBuilder.group({
 
-            nombre:  new FormControl('', [Validators.required, Validators.minLength(1)]),            
-            direccion:  new FormControl('', [Validators.required, Validators.minLength(1)]),       
-            municipio_id:  new FormControl('', [Validators.required, Validators.minLength(1)]),  
+            nombre:  new FormControl('', [Validators.required, Validators.minLength(1)]),
+            direccion:  new FormControl('', [Validators.required, Validators.minLength(1)]),
+            municipio_id:  new FormControl('', [Validators.required, Validators.minLength(1)]),
             departamento_id:  new FormControl('', [Validators.required, Validators.minLength(1)]),
             esEnlace:  new FormControl(false, [Validators.required, Validators.minLength(1)]),
             estado:  new FormControl(true, [Validators.required, Validators.minLength(1)]),      
             latitud:  new FormControl('', [Validators.required, Validators.minLength(2)]),
-            longitud:  new FormControl('', [Validators.required, Validators.minLength(2)]),                     
+            longitud:  new FormControl('', [Validators.required, Validators.minLength(2)])                  
             
-                             
+                            
+
+
 
       })
     });
 
-    
+
   }
 
 
@@ -56,7 +58,7 @@ export class AgregarSucursalComponent {
   }
   
   getMunicipiosByDeptoId(event:any){
-    
+
     this.departamentoService.getMunicipiosDeptoId(event.target.value).subscribe(
       data=>{
         this.municipios=data;
@@ -67,11 +69,11 @@ export class AgregarSucursalComponent {
        alert("Error al obtener los departamentos")
       }
     );
-    
+
   }
 
   getMunicipiosByDeptoIdFist(id:number){
-    
+
     this.departamentoService.getMunicipiosDeptoId(id).subscribe(
       data=>{
         this.municipios=data;
@@ -82,9 +84,9 @@ export class AgregarSucursalComponent {
        alert("Error al obtener los departamentos")
       }
     );
-    
+
   }
-  
+
 
   getDepartamentos(){
     this.departamentoService.getDepartamentos().subscribe(
@@ -98,14 +100,9 @@ export class AgregarSucursalComponent {
       }
     );
   }
-  
+
 
   onSubmit(){
-    if(this.sucursalForm.invalid){
-      this.sucursalForm.markAllAsTouched
-      this.flag=1;//error msg
-    }
-
     let sucursal:Sucursal=new Sucursal();
     sucursal.esEnlace=this.getEnlace();
     sucursal.estado=this.getEstado();
@@ -113,7 +110,7 @@ export class AgregarSucursalComponent {
     sucursal.nombre=this.getNombre();
     sucursal.municipio_id=+this.getMunicipioId();
     sucursal.departamento_id=+this.getDepartamentoId();
-
+    console.log(sucursal);
     this.sucursalService.saveSucursal(sucursal).subscribe(
       data=>{
         this.flag=2;//ningun error al enviar 200 Status
@@ -122,15 +119,15 @@ export class AgregarSucursalComponent {
         }else{
           this.flag=1;//ningun error al enviar 200 Status
         }*/
-        
+
 
       },error=>{
         this.flag=1;
        //alert("Error al guardar sucursal")
       }
     );
-  
-    
+
+
   }
 
   //GETTER SETTER

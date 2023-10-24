@@ -12,15 +12,24 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
         </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
+            Envio
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="create_ship">Crear Envio</a>
-            <a class="dropdown-item" href="agregar-vehiculo">Agregar vehiculo</a>
-            <a class="dropdown-item" href="agregar-personal">Agregar personal</a>
-          
+            <a class="dropdown-item" routerLink="editar-envio">Listar envios</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navBarPersona" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Persona
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="agregar-persona">Nuevo registro</a>
+            <a class="dropdown-item" routerLink="editar-persona">Editar persona</a>
           </div>
         </li>
 
@@ -58,6 +67,7 @@
         </li>
         
         
+
       </ul>
     </div>
   </nav>

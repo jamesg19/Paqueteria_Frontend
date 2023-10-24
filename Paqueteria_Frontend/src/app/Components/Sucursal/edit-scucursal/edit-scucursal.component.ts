@@ -10,13 +10,12 @@ import { Sucursal } from 'src/app/entidades/sucursal';
 export class EditScucursalComponent {
 
   sucursales:Sucursal[];
-
   constructor(private sucursalService:SucursalService){
     this.getSucursales();
   }
 
   updateSucursal(id:number){
-   
+
     const estado = document.getElementById("estado-"+id) as HTMLInputElement;
     const enlace = document.getElementById("enlace-"+id) as HTMLInputElement;
     const longitud = document.getElementById("longitud-"+id) as HTMLInputElement;
@@ -39,7 +38,7 @@ export class EditScucursalComponent {
       }
     )
 
-    
+
 
   }
   private getValorBoolean(val:string){
