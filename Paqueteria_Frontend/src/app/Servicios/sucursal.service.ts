@@ -51,7 +51,7 @@ export class SucursalService {
 
   getSucursalesPorDepartamento(): Observable<SucursalesDepto[]> {
     // need to build URL based on product id
-    const sucursalUrl = `${this.baseUrl}/sucursal/get_sucursales_departamento`;
+    const sucursalUrl = `${this.baseUrl}/get_sucursales_departamento`;
     return this.httpClient.get<SucursalesDepto[]>(sucursalUrl);
   }
 

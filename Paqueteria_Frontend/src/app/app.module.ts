@@ -34,7 +34,7 @@ import { DetalleComponent } from './Components/envios/detalle/detalle.component'
     EditScucursalComponent,
     AgregarRutaComponent,
     EditarRutaComponent,
-    MapaCoordenadaComponent
+    MapaCoordenadaComponent,
     UsuarioModalComponent,
     EditarPersonaComponent,
     EditarEnvioComponent,

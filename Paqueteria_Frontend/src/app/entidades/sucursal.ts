@@ -11,6 +11,8 @@ export class Sucursal {
     nombre:string = '';
     esEnlace:boolean = false;
     estado:boolean = false;
+    longitud:number=0;
+    latitud:number=0;
 
 }
 
