@@ -38,7 +38,7 @@
                             <th>
                                 Sucursal Origen:
                                 <select class="custom-select" id="sucursal_origen_id" formControlName="sucursal_origen_id">
-                                    <option *ngFor="let sucursal of sucursales" [ngValue]="sucursal.idSucursal">{{sucursal.nombre}}</option>
+                                    <option *ngFor="let sucursal of sucursales" [ngValue]="sucursal.idSucursal">{{sucursal.idSucursal}},{{sucursal.nombre}},{{sucursal.municipio.nombre}},{{sucursal.departamento.nombre}}</option>
                                 </select>
                             </th>
                             <th>

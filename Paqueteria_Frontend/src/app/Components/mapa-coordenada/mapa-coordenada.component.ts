@@ -83,12 +83,12 @@ this.addPointInMap('Sucursal puerto Quetzal',puntoD);
       console.log("Destino");
       console.log(pointDestino);
       //agregar ruta en carretera
-      this.getRoute(pointOrigen,pointDestino,'blue');
-      await this.sleep(450);
+      //this.getRoute(pointOrigen,pointDestino,'blue');
+      //await this.sleep(450);
       //agregar ruta de origen y destino en el mapa
       
       this.addPointInMap(this.rutaOneWay[i].origen.nombre,pointOrigen);
-      await this.sleep(450);
+      //await this.sleep(450);
     }
 
 
