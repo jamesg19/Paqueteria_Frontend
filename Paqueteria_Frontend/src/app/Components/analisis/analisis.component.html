@@ -1,0 +1,54 @@
+<form>
+
+    <!-- Textbox para indicar la longitud -->
+    <div class="form-group">
+        <label for="longitud">Longitud</label>
+        <input type="text" id="longitud" name="longitud" [(ngModel)]="longitud" class="form-control">
+    </div>
+
+    <!-- Textbox para indicar la latitud -->
+    <div class="form-group">
+        <label for="latitud">Latitud</label>
+        <input type="text" id="distancia" name="latitud" [(ngModel)]="latitud" class="form-control">
+    </div>
+
+    <!-- Textbox para indicar la Cantidad de Vehiculos -->
+    <div class="form-group">
+        <label for="cantidadVehiculos">Cantidad de Vehiculos</label>
+        <input type="number" id="cantidadVehiculos" name="cantidadVehiculos" [(ngModel)]="cantidadVehiculos" class="form-control" step="1">
+    </div>
+
+    <!-- Textbox para indicar la Cantidad de Personas -->
+    <div class="form-group">
+        <label for="cantidadPersonal">Cantidad de Personal</label>
+        <input type="number" id="cantidadPersonal" name="cantidadPersonal" [(ngModel)]="cantidadPersonal" class="form-control" step="1">
+    </div>
+
+    <div *ngFor="let sucursal of sucursales; let i = index">
+      <!-- Combobox para seleccionar sucursal -->
+      <div class="form-group">
+        <label for="sucursal{{i}}">Sucursal {{i + 1}}:</label>
+        <select id="sucursal{{i}}" name="sucursal{{i}}" [(ngModel)]="sucursales[i]" class="form-control">
+          <option value="sucursal1">Sucursal 1</option>
+          <option value="sucursal2">Sucursal 2</option>
+          <option value="sucursal3">Sucursal 3</option>
+          <!-- Agrega más opciones según tus necesidades -->
+        </select>
+      </div>
+  
+      <!-- Textbox para indicar la distancia -->
+      <div class="form-group">
+        <label for="distancia{{i}}">Distancia {{i + 1}}:</label>
+        <input type="text" id="distancia{{i}}" name="distancia{{i}}" [(ngModel)]="distancias[i]" class="form-control">
+      </div>
+  
+      <!-- Botón para quitar la sucursal actual -->
+      <button type="button" (click)="quitarSucursal(i)" class="btn btn-danger">Quitar Sucursal</button>
+    </div>
+  
+    <!-- Botón para agregar más sucursales -->
+    <button type="button" (click)="agregarSucursal()" class="btn btn-success">Agregar Sucursal</button>
+  
+    <!-- Botón para enviar el formulario (puedes agregar lógica según tus necesidades) -->
+    <button type="button" (click)="enviarFormulario()" class="btn btn-primary">Enviar</button>
+  </form>

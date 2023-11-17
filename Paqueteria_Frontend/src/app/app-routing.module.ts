@@ -12,6 +12,7 @@ import { MapaCoordenadaComponent } from './Components/mapa-coordenada/mapa-coord
 import {EditarEnvioComponent} from "./Components/envios/editar-envio/editar-envio.component";
 import {UsuarioModalComponent} from "./UsuarioModal/usuarioModal.component";
 import {EditarPersonaComponent} from "./Components/persona/editar-persona/editar-persona.component";
+import { AnalisisComponent } from './Components/analisis/analisis.component';
 
 const routes: Routes = [
   {path: 'create_ship', component: CrearEnvioComponent},
@@ -29,6 +30,9 @@ const routes: Routes = [
 
   {path: 'maps', component: MapComponent},
   {path: 'maps_live', component: MapaCoordenadaComponent},
+
+  //Analisis de datos
+  {path: 'analisis', component: AnalisisComponent},
 ];
 
 @NgModule({

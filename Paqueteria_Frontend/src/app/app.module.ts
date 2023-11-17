@@ -21,6 +21,7 @@ import { EditarPersonaComponent } from './Components/persona/editar-persona/edit
 import { EditarEnvioComponent } from './Components/envios/editar-envio/editar-envio.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { DetalleComponent } from './Components/envios/detalle/detalle.component';
+import { AnalisisComponent } from './Components/analisis/analisis.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { DetalleComponent } from './Components/envios/detalle/detalle.component'
     UsuarioModalComponent,
     EditarPersonaComponent,
     EditarEnvioComponent,
-    DetalleComponent
+    DetalleComponent,
+    AnalisisComponent
   ],
     imports: [
         BrowserModule,
