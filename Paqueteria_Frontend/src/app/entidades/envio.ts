@@ -14,4 +14,8 @@ export class Envio {
   personaReceptor:Persona;
   fechaLlegada:Data;
   subTotal:number;
+  peso:number;
+  volumen:number;
+  diasTranscurridos:number
+  estado:string;
 }

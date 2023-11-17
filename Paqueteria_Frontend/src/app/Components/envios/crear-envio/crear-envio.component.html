@@ -7,6 +7,7 @@
         </label>
         <span>{{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}</span>
       </div>
+
 <form [formGroup]="createShipForm" (ngSubmit)="onSubmit()" >
 
     <div class="container">
@@ -22,13 +23,15 @@
                         <tr>
                           <th>
                             Nit emisor:
-                            <input id="nombre_emisor" type="text" class="form-control" formControlName="nit_emisor" (blur)="buscarPersonaEmisor()">
+                            <input id="nombre_emisor" type="text" class="form-control" formControlName="nit_emisor">
+                            <button type="button" (click)="buscarPersonaEmisor()">Validar</button>
                             Nombre:
                             <label [textContent]="nombre_emisor">Nombre:</label>
                           </th>
                           <th>
                             Nit receptor:
-                            <input id="nombre_receptor" type="text" class="form-control"  formControlName="nit_receptor" (blur)="buscarPersonaReceptor()">
+                            <input id="nombre_receptor" type="text" class="form-control"  formControlName="nit_receptor">
+                            <button type="button" (click)="buscarPersonaReceptor()">Validar</button>
                             Nombre:
                             <label [textContent]="nombre_receptor"></label>
                             </th>
@@ -47,6 +50,7 @@
                                   <option *ngFor="let sucursal of sucursales" [ngValue]="sucursal.idSucursal">{{sucursal.nombre}}</option>
                                 </select>
                             </th>
+                          <button type="button" (click)="getPasos()">Obtener ruta</button>
                         </tr>
                         <br>
                         <tr>
