@@ -7,6 +7,8 @@ import { AgregarPersonalComponent } from './Components/agregar-personal/agregar-
 import { AgregarSucursalComponent } from './Components/Sucursal/agregar-sucursal/agregar-sucursal.component';
 import { EditScucursalComponent } from './Components/Sucursal/edit-scucursal/edit-scucursal.component';
 import { EditarRutaComponent } from './Components/Rutas/editar-ruta/editar-ruta.component';
+import { AgregarRutaComponent } from './Components/Rutas/agregar-ruta/agregar-ruta.component';
+import { MapaCoordenadaComponent } from './Components/mapa-coordenada/mapa-coordenada.component';
 import {EditarEnvioComponent} from "./Components/envios/editar-envio/editar-envio.component";
 import {UsuarioModalComponent} from "./UsuarioModal/usuarioModal.component";
 import {EditarPersonaComponent} from "./Components/persona/editar-persona/editar-persona.component";
@@ -18,12 +20,15 @@ const routes: Routes = [
   {path: 'agregar-personal', component: AgregarPersonalComponent},
   {path: 'agregar-sucursal', component: AgregarSucursalComponent},
   {path: 'editar-sucursal', component: EditScucursalComponent},
+
+  {path: 'agregar-ruta', component: AgregarRutaComponent},
   {path: 'editar-ruta', component: EditarRutaComponent},
   {path: 'agregar-persona', component: UsuarioModalComponent},
   {path: 'editar-persona', component: EditarPersonaComponent},
   //editar-sucursal
 
   {path: 'maps', component: MapComponent},
+  {path: 'maps_live', component: MapaCoordenadaComponent},
 ];
 
 @NgModule({

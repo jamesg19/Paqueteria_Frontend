@@ -22,6 +22,14 @@ export class RutaService {
     const rutasUrl = `${this.baseUrl}/rutas/get_rutas`;
     return this.httpClient.get<Ruta[]>(rutasUrl);
   }
+  //rutas/get_rutas_mapa
+
+  obtenerRutasMapaCoordenadas(): Observable<Ruta[]> {
+    // need to build URL based on product id
+    const rutasUrl = `${this.baseUrl}/rutas/get_rutas_mapa`;
+
+    return this.httpClient.get<Ruta[]>(rutasUrl);
+  }
 
   obtenerRutasOD( origen:String,destino:String):Observable<Sucursal[]>{
     return this.httpClient.get<Sucursal[]>(`${this.baseUrl}/ruta_optima/get_ruta?origen=${origen}&destino=${destino}`);

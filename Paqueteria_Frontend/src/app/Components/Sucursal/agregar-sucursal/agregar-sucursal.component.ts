@@ -34,7 +34,11 @@ export class AgregarSucursalComponent {
             municipio_id:  new FormControl('', [Validators.required, Validators.minLength(1)]),
             departamento_id:  new FormControl('', [Validators.required, Validators.minLength(1)]),
             esEnlace:  new FormControl(false, [Validators.required, Validators.minLength(1)]),
-            estado:  new FormControl(true, [Validators.required, Validators.minLength(1)]),
+            estado:  new FormControl(true, [Validators.required, Validators.minLength(1)]),      
+            latitud:  new FormControl('', [Validators.required, Validators.minLength(2)]),
+            longitud:  new FormControl('', [Validators.required, Validators.minLength(2)])                  
+            
+                            
 
 
 
@@ -43,9 +47,16 @@ export class AgregarSucursalComponent {
 
 
   }
+
+
+
+
+
+
   private setDepartamentoId(departamentoId: number) {
     this.sucursalForm.get('sucursal.departamento_id').setValue(departamentoId);
   }
+  
   getMunicipiosByDeptoId(event:any){
 
     this.departamentoService.getMunicipiosDeptoId(event.target.value).subscribe(
@@ -141,5 +152,11 @@ export class AgregarSucursalComponent {
   }
   getEstado() {
     return this.sucursalForm.get('sucursal.estado').value;
+  }
+  getLongitud() {
+    return this.sucursalForm.get('sucursal.longitud').value;
+  }
+  getLatitud() {
+    return this.sucursalForm.get('sucursal.latitud').value;
   }
 }

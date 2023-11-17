@@ -26,7 +26,7 @@ export class EditarRutaComponent {
         alert(" No se puedo obtener las rutas");
       }
     )
-    
+
   }
 
 

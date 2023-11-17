@@ -18,16 +18,20 @@ export class EditScucursalComponent {
 
     const estado = document.getElementById("estado-"+id) as HTMLInputElement;
     const enlace = document.getElementById("enlace-"+id) as HTMLInputElement;
-    alert(enlace.value+" "+estado.value)
+    const longitud = document.getElementById("longitud-"+id) as HTMLInputElement;
+    const latitud = document.getElementById("latitud-"+id) as HTMLInputElement;
+    //alert(enlace.value+" "+estado.value)
     let sucursal:Sucursal=new Sucursal();
 
     sucursal.idSucursal=id;
     sucursal.estado=this.getValorBoolean(estado.value+"");
     sucursal.esEnlace=this.getValorBoolean(enlace.value+"");
+    sucursal.longitud=+longitud.value
+    sucursal.latitud=+latitud.value
 
-    this.sucursalService.saveSucursal(sucursal).subscribe(
+    this.sucursalService.editarSucursal(sucursal).subscribe(
       data=>{
-        alert("Succesfull...")
+        //alert("Succesfull...")
 
       }, error=>{
 
