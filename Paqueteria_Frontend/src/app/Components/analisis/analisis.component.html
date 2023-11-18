@@ -1,4 +1,13 @@
-<form>
+<div>
+    <h1>Analisis de datos</h1>
+</div>
+
+<form class="form">
+
+    <div>
+        <h2>Agregar datos de nueva sucursal</h2>
+        <h3>Parametros inciales</h3>
+    </div>
 
     <!-- Textbox para indicar la longitud -->
     <div class="form-group">
@@ -24,31 +33,92 @@
         <input type="number" id="cantidadPersonal" name="cantidadPersonal" [(ngModel)]="cantidadPersonal" class="form-control" step="1">
     </div>
 
+    <div>
+        <h3>Parametros de rutas</h3>
+    </div>
+
     <div *ngFor="let sucursal of sucursales; let i = index">
-      <!-- Combobox para seleccionar sucursal -->
-      <div class="form-group">
-        <label for="sucursal{{i}}">Sucursal {{i + 1}}:</label>
-        <select id="sucursal{{i}}" name="sucursal{{i}}" [(ngModel)]="sucursales[i]" class="form-control">
-          <option value="sucursal1">Sucursal 1</option>
-          <option value="sucursal2">Sucursal 2</option>
-          <option value="sucursal3">Sucursal 3</option>
-          <!-- Agrega más opciones según tus necesidades -->
-        </select>
-      </div>
-  
-      <!-- Textbox para indicar la distancia -->
-      <div class="form-group">
-        <label for="distancia{{i}}">Distancia {{i + 1}}:</label>
-        <input type="text" id="distancia{{i}}" name="distancia{{i}}" [(ngModel)]="distancias[i]" class="form-control">
-      </div>
-  
-      <!-- Botón para quitar la sucursal actual -->
-      <button type="button" (click)="quitarSucursal(i)" class="btn btn-danger">Quitar Sucursal</button>
+        <!-- Combobox para seleccionar sucursal -->
+        <div class="form-group">
+          <label for="sucursal{{i}}">Sucursal {{i + 1}}:</label>
+          <select id="sucursal{{i}}" name="sucursal{{i}}" [(ngModel)]="sucursales[i]" class="form-control">
+            <option value="sucursal1">Sucursal 1</option>
+            <option value="sucursal2">Sucursal 2</option>
+            <option value="sucursal3">Sucursal 3</option>
+            <!-- Agrega más opciones según tus necesidades -->
+          </select>
+        </div>
+      
+        <!-- Textbox para indicar la distancia -->
+        <div class="form-group">
+          <label for="distancia{{i}}">Distancia {{i + 1}}:</label>
+          <input type="text" id="distancia{{i}}" name="distancia{{i}}" [(ngModel)]="distancias[i]" class="form-control">
+        </div>
+      
+        <!-- Botón para quitar la sucursal actual -->
+        <button type="button" (click)="quitarSucursal(i)" class="btn btn-danger quitar">Quitar Sucursal</button>
     </div>
   
-    <!-- Botón para agregar más sucursales -->
-    <button type="button" (click)="agregarSucursal()" class="btn btn-success">Agregar Sucursal</button>
+    <div>
+        <!-- Botón para agregar más sucursales -->
+        <button type="button" (click)="agregarSucursal()" class="btn btn-success agregar">Agregar Sucursal</button>
+    </div>
   
-    <!-- Botón para enviar el formulario (puedes agregar lógica según tus necesidades) -->
-    <button type="button" (click)="enviarFormulario()" class="btn btn-primary">Enviar</button>
-  </form>
+    <div>
+        <!-- Botón para enviar el formulario (puedes agregar lógica según tus necesidades) -->
+        <button type="button" (click)="enviarFormulario()" class="btn btn-primary enviar">Enviar</button>
+    </div>
+</form>
+
+<br/>
+<br/>
+
+<div class="prediccion">
+    <h1>Prediccion de datos</h1>
+
+    <div>
+        <h2>Descripcion de la prediccion</h2>
+        <p>
+            {{descripcion}}
+        </p>
+        <h3>Recomendacion ante la prediccion</h3>
+        <p>
+            {{descripcion}}
+        </p>
+    </div>
+
+    <div>
+        <h2>Graficos de la prediccion</h2>
+
+        <div class="graph">
+            <h3>Datos predecidos a 1 año</h3>
+            <ngx-charts-number-card
+            [results]="single"
+            [view]="view"
+            [cardColor]="cardColor"            
+            >
+            </ngx-charts-number-card>
+        </div>
+
+        <div class="graph">
+            <h3>Grafico de ganancias y gastos</h3>
+            <ngx-charts-line-chart
+              [view]="view2"              
+              [legend]="legend"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxis]="xAxis"
+              [yAxis]="yAxis"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              [timeline]="timeline"
+              [results]="multi"
+              (select)="onSelect($event)"
+              (activate)="onActivate($event)"
+              (deactivate)="onDeactivate($event)"
+              >
+            </ngx-charts-line-chart>
+        </div>
+    </div>
+</div>
+

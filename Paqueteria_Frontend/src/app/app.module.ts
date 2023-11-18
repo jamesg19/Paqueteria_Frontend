@@ -22,6 +22,8 @@ import { EditarEnvioComponent } from './Components/envios/editar-envio/editar-en
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { DetalleComponent } from './Components/envios/detalle/detalle.component';
 import { AnalisisComponent } from './Components/analisis/analisis.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { AnalisisComponent } from './Components/analisis/analisis.component';
         ReactiveFormsModule,
         MatDialogModule,
         MatTooltipModule,
-        FormsModule
+        FormsModule,
+        NgxChartsModule,
+        BrowserAnimationsModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
