@@ -1,22 +1,16 @@
 import { Component, inject } from '@angular/core';
-import {SucursalService} from "../../Servicios/sucursal.service";
+import {SucursalService} from "../../../Servicios/sucursal.service";
 import { AnalisisService } from 'src/app/Servicios/analisis.service';
-import {Sucursal} from "../../entidades/sucursal";
-
+import {Sucursal} from "../../../entidades/sucursal";
 
 @Component({
-  selector: 'app-analisis',
-  templateUrl: './analisis.component.html',
-  styleUrls: ['./analisis.component.css']
+  selector: 'app-analisis-vehiculos',
+  templateUrl: './analisis-vehiculos.component.html',
+  styleUrls: ['./analisis-vehiculos.component.css']
 })
-export class AnalisisComponent {
-  sucursales: string[] = [''];
+export class AnalisisVehiculosComponent {
   sucursalForm: string = '';
-  distancias: string[] = [''];
-  latitud: string = '';
-  longitud: string = '';
   cantidadVehiculos: string = '';
-  cantidadPersonal: string = '';
   sucursalServ = inject(SucursalService);
   sucursalesSelect:Sucursal[];
   analisisServ = inject(AnalisisService);
@@ -25,33 +19,11 @@ export class AnalisisComponent {
     this.getSucursales();
   }
 
-  agregarSucursal() {
-    this.sucursales.push('');
-    this.distancias.push('');
-  }
-
-  quitarSucursal(index: number) {
-    if (this.sucursales.length > 1) {
-      this.sucursales.splice(index, 1);
-      this.distancias.splice(index, 1);
-    }
-  }
-
-  enviarFormulario() {
-    // Agrega la lógica de envío del formulario según tus necesidades
-    console.log('Sucursales:', this.sucursales);
-    console.log('Distancias:', this.distancias);
-    console.log('Longitud:', this.longitud);
-    console.log('Latitud:', this.latitud);
-    console.log('Cantidad Vehiculos:', this.cantidadVehiculos);
-    console.log('Cantidad Personal:', this.cantidadPersonal);
-    this.getNuevaSucursal();
-    console.log('Descripcion: ', this.descripcion);
-  }
 
   enviarFormularioVehiculos(){
     console.log('Cantidad Vehiculos:', this.cantidadVehiculos);
     console.log('Sucursal:', this.sucursalForm);
+    this.getVehiculosSucursal();
   }
 
   getSucursales(){
@@ -64,7 +36,7 @@ export class AnalisisComponent {
     });
   }
 
-  getNuevaSucursal(){
+  getVehiculosSucursal(){
     this.analisisServ.getAnalisisNuevaSucursal().subscribe({
       next: data => {
         this.descripcion = data;
@@ -110,8 +82,6 @@ export class AnalisisComponent {
   onSelectCards(event:any) {
     console.log(event);
   }
-
-
 
   multi = [
     {
@@ -179,9 +149,4 @@ export class AnalisisComponent {
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
-  
-
-
-
-  
 }

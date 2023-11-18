@@ -1,17 +1,16 @@
 import { Component, inject } from '@angular/core';
-import {SucursalService} from "../../Servicios/sucursal.service";
+import {SucursalService} from "../../../Servicios/sucursal.service";
 import { AnalisisService } from 'src/app/Servicios/analisis.service';
-import {Sucursal} from "../../entidades/sucursal";
-
+import {Sucursal} from "../../../entidades/sucursal";
 
 @Component({
-  selector: 'app-analisis',
-  templateUrl: './analisis.component.html',
-  styleUrls: ['./analisis.component.css']
+  selector: 'app-analisis-ruta',
+  templateUrl: './analisis-ruta.component.html',
+  styleUrls: ['./analisis-ruta.component.css']
 })
-export class AnalisisComponent {
-  sucursales: string[] = [''];
+export class AnalisisRutaComponent {
   sucursalForm: string = '';
+  sucursales: string[] = [''];
   distancias: string[] = [''];
   latitud: string = '';
   longitud: string = '';
@@ -47,11 +46,7 @@ export class AnalisisComponent {
     console.log('Cantidad Personal:', this.cantidadPersonal);
     this.getNuevaSucursal();
     console.log('Descripcion: ', this.descripcion);
-  }
-
-  enviarFormularioVehiculos(){
-    console.log('Cantidad Vehiculos:', this.cantidadVehiculos);
-    console.log('Sucursal:', this.sucursalForm);
+    console.log('Sucursal Origen: ', this.sucursalForm)
   }
 
   getSucursales(){
@@ -179,9 +174,4 @@ export class AnalisisComponent {
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
-  
-
-
-
-  
 }

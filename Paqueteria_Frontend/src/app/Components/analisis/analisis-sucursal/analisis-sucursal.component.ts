@@ -1,17 +1,15 @@
 import { Component, inject } from '@angular/core';
-import {SucursalService} from "../../Servicios/sucursal.service";
+import {SucursalService} from "../../../Servicios/sucursal.service";
 import { AnalisisService } from 'src/app/Servicios/analisis.service';
-import {Sucursal} from "../../entidades/sucursal";
-
+import {Sucursal} from "../../../entidades/sucursal";
 
 @Component({
-  selector: 'app-analisis',
-  templateUrl: './analisis.component.html',
-  styleUrls: ['./analisis.component.css']
+  selector: 'app-analisis-sucursal',
+  templateUrl: './analisis-sucursal.component.html',
+  styleUrls: ['./analisis-sucursal.component.css']
 })
-export class AnalisisComponent {
+export class AnalisisSucursalComponent {
   sucursales: string[] = [''];
-  sucursalForm: string = '';
   distancias: string[] = [''];
   latitud: string = '';
   longitud: string = '';
@@ -47,11 +45,6 @@ export class AnalisisComponent {
     console.log('Cantidad Personal:', this.cantidadPersonal);
     this.getNuevaSucursal();
     console.log('Descripcion: ', this.descripcion);
-  }
-
-  enviarFormularioVehiculos(){
-    console.log('Cantidad Vehiculos:', this.cantidadVehiculos);
-    console.log('Sucursal:', this.sucursalForm);
   }
 
   getSucursales(){
@@ -179,9 +172,4 @@ export class AnalisisComponent {
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
-  
-
-
-
-  
 }

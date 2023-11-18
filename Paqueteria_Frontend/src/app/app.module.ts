@@ -24,6 +24,9 @@ import { DetalleComponent } from './Components/envios/detalle/detalle.component'
 import { AnalisisComponent } from './Components/analisis/analisis.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AnalisisRutaComponent } from './Components/analisis/analisis-ruta/analisis-ruta.component';
+import { AnalisisSucursalComponent } from './Components/analisis/analisis-sucursal/analisis-sucursal.component';
+import { AnalisisVehiculosComponent } from './Components/analisis/analisis-vehiculos/analisis-vehiculos.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditarPersonaComponent,
     EditarEnvioComponent,
     DetalleComponent,
-    AnalisisComponent
+    AnalisisComponent,
+    AnalisisRutaComponent,
+    AnalisisSucursalComponent,
+    AnalisisVehiculosComponent
   ],
     imports: [
         BrowserModule,

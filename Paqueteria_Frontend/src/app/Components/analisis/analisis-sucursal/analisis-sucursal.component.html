@@ -67,58 +67,6 @@
     </div>
 </form>
 
-<br>
-<br>
-
-<form class="form">
-
-    <div>
-        <h2>Agregar Vehiculos a sucursal</h2>
-        <h3>Parametros inciales</h3>
-    </div>
-
-    <!-- Textbox para indicar la Cantidad de Vehiculos -->
-    <div class="form-group">
-        <label for="cantidadVehiculos">Cantidad de Vehiculos</label>
-        <input type="number" id="cantidadVehiculos" name="cantidadVehiculos" [(ngModel)]="cantidadVehiculos" class="form-control" step="1">
-    </div>
-
-    <div class="form-group">
-        <label for="sucursal">Sucursal:</label>
-        <select id="sucursal" name="sucursal" [(ngModel)]="sucursalForm" class="form-control">
-          <option *ngFor="let sucursal of sucursalesSelect" [ngValue]="sucursal.idSucursal">{{sucursal.idSucursal}},{{sucursal.nombre}},{{sucursal.municipio.nombre}},{{sucursal.departamento.nombre}}</option>
-        </select>
-      </div>
-  
-    <div>
-        <!-- Botón para enviar el formulario (puedes agregar lógica según tus necesidades) -->
-        <button type="button" (click)="enviarFormularioVehiculos()" class="btn btn-primary enviar">Enviar</button>
-    </div>
-</form>
-
-<br>
-<br>
-
-<form class="form">
-
-    <div>
-        <h2>Agregar Ruta a Sucursal</h2>
-        <h3>Parametros inciales</h3>
-    </div>
-
-    <div class="form-group">
-        <label for="sucursal">Sucursal:</label>
-        <select id="sucursal" name="sucursal" [(ngModel)]="sucursalForm" class="form-control">
-          <option *ngFor="let sucursal of sucursalesSelect" [ngValue]="sucursal.idSucursal">{{sucursal.idSucursal}},{{sucursal.nombre}},{{sucursal.municipio.nombre}},{{sucursal.departamento.nombre}}</option>
-        </select>
-      </div>
-  
-    <div>
-        <!-- Botón para enviar el formulario (puedes agregar lógica según tus necesidades) -->
-        <button type="button" (click)="enviarFormularioVehiculos()" class="btn btn-primary enviar">Enviar</button>
-    </div>
-</form>
-
 <br/>
 <br/>
 
