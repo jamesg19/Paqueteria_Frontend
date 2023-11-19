@@ -79,15 +79,15 @@ export class AnalisisComponent {
 
   single = [
     {
-      "name": "Estimado de envios Envios",
+      "name": "Estimado de envios realizados por nuevos vehiculos",
       "value": 50,      
     },
     {
-      "name": "Estimado de Ganancias",
+      "name": "Estimado de gastos por gasolina",
       "value": 3200,
     },
     {
-      "name": "Estimado de Gastos",
+      "name": "Estimado de ganancias",
       "value": 3800,
     },
     {

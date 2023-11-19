@@ -19,4 +19,12 @@ export class AnalisisService {
     console.log(respuesta);
     return respuesta;
   }
+
+
+  getAnalisisNuevosVehiculos(cantidadVehiculos:string,sucursalForm:string): Observable<any> {
+    // need to build URL based on product id
+    const sucursalUrl = `${this.baseUrl}/nuevosVehiculos?cantidadVehiculos=${cantidadVehiculos}&sucursalForm=${sucursalForm}`;
+    const respuesta = this.httpClient.get<string>(sucursalUrl);
+    return respuesta;
+  }
 }
