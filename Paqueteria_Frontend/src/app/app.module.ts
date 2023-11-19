@@ -27,6 +27,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnalisisRutaComponent } from './Components/analisis/analisis-ruta/analisis-ruta.component';
 import { AnalisisSucursalComponent } from './Components/analisis/analisis-sucursal/analisis-sucursal.component';
 import { AnalisisVehiculosComponent } from './Components/analisis/analisis-vehiculos/analisis-vehiculos.component';
+import { DashboardComponent } from './Components/reportes/dashboard/dashboard.component';
+import { ExcedenteComponent } from './Components/reportes/excedente/excedente.component';
+import { MovSucursalComponent } from './Components/reportes/mov-sucursal/mov-sucursal.component';
+import { MovVehiculoComponent } from './Components/reportes/mov-vehiculo/mov-vehiculo.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,11 @@ import { AnalisisVehiculosComponent } from './Components/analisis/analisis-vehic
     AnalisisComponent,
     AnalisisRutaComponent,
     AnalisisSucursalComponent,
-    AnalisisVehiculosComponent
+    AnalisisVehiculosComponent,
+    DashboardComponent,
+    ExcedenteComponent,
+    MovSucursalComponent,
+    MovVehiculoComponent
   ],
     imports: [
         BrowserModule,

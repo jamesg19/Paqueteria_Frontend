@@ -15,6 +15,10 @@ import {EditarPersonaComponent} from "./Components/persona/editar-persona/editar
 import { AnalisisRutaComponent } from './Components/analisis/analisis-ruta/analisis-ruta.component';
 import { AnalisisVehiculosComponent } from './Components/analisis/analisis-vehiculos/analisis-vehiculos.component';
 import { AnalisisSucursalComponent } from './Components/analisis/analisis-sucursal/analisis-sucursal.component';
+import { DashboardComponent } from './Components/reportes/dashboard/dashboard.component';
+import { ExcedenteComponent } from './Components/reportes/excedente/excedente.component';
+import { MovSucursalComponent } from './Components/reportes/mov-sucursal/mov-sucursal.component';
+import { MovVehiculoComponent } from './Components/reportes/mov-vehiculo/mov-vehiculo.component';
 
 const routes: Routes = [
   {path: 'create_ship', component: CrearEnvioComponent},
@@ -37,6 +41,11 @@ const routes: Routes = [
   {path: 'analisis-ruta', component: AnalisisRutaComponent},
   {path: 'analisis-vehiculos', component: AnalisisVehiculosComponent},
   {path: 'analisis-sucursal', component: AnalisisSucursalComponent},
+  
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'excedente', component: ExcedenteComponent},
+  {path: 'mov-sucursal', component: MovSucursalComponent},
+  {path: 'mov-vehiculo', component: MovVehiculoComponent},
 ];
 
 @NgModule({

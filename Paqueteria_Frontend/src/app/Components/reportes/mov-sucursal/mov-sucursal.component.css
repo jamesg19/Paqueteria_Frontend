@@ -1,0 +1,83 @@
+/* styles.css */
+.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+  }
+    
+  .dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+  }
+  
+  .form{
+    background-color: #48e5c2;
+    max-width: 80%;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  /* Estilo de los campos de entrada */
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 20%;
+  }
+  
+  .form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form input,
+  .form select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-width: 80%;  
+  }
+  
+  /* Estilo para mensajes de error o éxito (puedes personalizar según tus necesidades) */
+  .form .error-message {
+    color: red;
+    margin-top: 5px;
+  }
+  
+  .form .success-message {
+    color: green;
+    margin-top: 5px;
+  }
+  
+  .form button {          
+    margin-top: 5px;
+  }
+  
+  .form .quitar{  
+    margin-top: 5px;
+    text-align: right;
+  }
+  
+  .prediccion{
+    background-color: #f3d3bd;
+    max-width: 80%;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .prediccion h2,h3{  
+    text-align: left;
+  }
+  
+  .prediccion p{  
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+  }
+  
+  .graph {  
+    margin-left: 10%;
+  }
