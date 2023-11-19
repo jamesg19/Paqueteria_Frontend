@@ -18,6 +18,10 @@ export class AnalisisSucursalComponent {
   sucursalServ = inject(SucursalService);
   sucursalesSelect:Sucursal[];
   analisisServ = inject(AnalisisService);
+  descripcion='';
+  recomendacion = '';
+  datos: any[];;
+  multiDatos: any[];
 
   constructor(){
     this.getSucursales();
@@ -58,17 +62,18 @@ export class AnalisisSucursalComponent {
   }
 
   getNuevaSucursal(){
-    this.analisisServ.getAnalisisNuevaSucursal().subscribe({
+    this.analisisServ.getAnalisisNuevaSucursal(this.longitud,this.latitud,this.cantidadVehiculos,this.cantidadPersonal,this.sucursales,this.distancias).subscribe({
       next: data => {
-        this.descripcion = data;
+        this.descripcion = data.descripcion;
+        this.recomendacion = data.recomendacion;
+        this.datos = data.datos;
+        this.multiDatos = data.multiDatos;
       },
       error: err => {
         console.log(err)
       }
     });
-  }
-
-  descripcion='asdfasdfawefaw'
+  }  
 
   single = [
     {

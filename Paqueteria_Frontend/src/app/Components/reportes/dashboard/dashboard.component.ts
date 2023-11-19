@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReportesService } from 'src/app/Servicios/reportes.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,15 +12,32 @@ export class DashboardComponent {
   fechaAnalizar = Date();
   formulario: FormGroup;
 
-  enviarFormularioFecha(){
-    if (this.formulario.valid) {      
-      //Formulario valido
-      console.log('Fecha seleccionada:', this.formulario.value.fechaAnalizar);
+  datosgenerales: any[];
+  datosgastosgenerales: any[];
+  datosgastosespeciales: any[];
+  datossucursalesganancias: any[];
+  datossucursalesmenosganancias: any[];  
 
-    } else {
-      // El formulario no es valido
-      alert('Por favor, complete todos los campos obligatorios.');
-    }    
+  enviarFormulario(){          
+    console.log('Fecha seleccionada:', this.fechaAnalizar);
+    this.getReporte();
+  }
+
+  reportesServ = inject(ReportesService);  
+  getReporte(){
+    this.reportesServ.getReporteDashboard(this.fechaAnalizar).subscribe({
+      next: data => {
+        console.log(data);
+        this.datosgenerales = data.datosgenerales;
+        this.datosgastosgenerales = data.datosgastosgenerales;
+        this.datosgastosespeciales = data.datosgastosespeciales;
+        this.datossucursalesganancias = data.datossucursalesganancias;
+        this.datossucursalesmenosganancias = data.datossucursalesmenosganancias;
+      },
+      error: err => {
+        console.log("Error:",err)
+      }
+    });
   }
 
   constructor(private fb: FormBuilder) {

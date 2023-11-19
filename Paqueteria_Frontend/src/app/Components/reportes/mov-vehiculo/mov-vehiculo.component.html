@@ -8,7 +8,7 @@
     <div class="form-group">
         <label for="vehiculo">Vehiculo:</label>
         <select id="vehiculo" name="vehiculo" [(ngModel)]="vehiculoForm" class="form-control">
-          <!--<option *ngFor="let sucursal of sucursalesSelect" [ngValue]="sucursal.idSucursal">{{sucursal.idSucursal}},{{sucursal.nombre}},{{sucursal.municipio.nombre}},{{sucursal.departamento.nombre}}</option> -->
+          <option *ngFor="let vehiculo of vehiculosSelect" [ngValue]="vehiculo[0]">{{vehiculo[0]}},{{vehiculo[1]}},{{vehiculo[2]}},{{vehiculo[3]}}</option>
         </select>
     </div>
   

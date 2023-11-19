@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Dato } from './dato.interface';
+import { Component, inject } from '@angular/core';
+import { ReportesService } from 'src/app/Servicios/reportes.service';
 
 @Component({
   selector: 'app-mov-vehiculo',
@@ -10,49 +10,40 @@ export class MovVehiculoComponent {
   //En datos tienen que estar, movimientos realizados, envios enviados, 
 
   vehiculoForm: string = '';   
-  datos: any[];
-  multiDatos: any[];
+  datos: any[];  
   fechaAnalizar: any;
+  vehiculosSelect: any[];
 
   constructor(){
-    //this.getSucursales();
+    this.getVehiculos();
   }
   
   enviarFormulario(){
-    console.log("Enviar formulario");
-    this.getReporteSucursal();
+    this.getReporte();
   }
 
-  /*
-  sucursalServ = inject(SucursalService);
-  sucursalesSelect:Sucursal[];
-  getSucursales(){
-    this.sucursalServ.getSucursalesActivas().subscribe({
-      next: data => {
-        this.sucursalesSelect = data;
-      },
-      error: err => {
-      }
-    });
-  }
   
-  */
-
-  
-
-  getReporteSucursal(){    
-    /*this.analisisServ.getAnalisisNuevosVehiculos(this.cantidadVehiculos,this.sucursalForm).subscribe({
+  reportesServ = inject(ReportesService);  
+  getReporte(){
+    this.reportesServ.getReporteMovVehiculo(this.vehiculoForm).subscribe({
       next: data => {
-        this.descripcion = data.descripcion;
-        this.recomendacion = data.recomendacion;
         this.datos = data.datos;
-        this.multiDatos = data.multiDatos;
+        this.datostable = data.datostable;
       },
       error: err => {
-        console.log(err)
+        console.log("Error:",err)
       }
     });
-    */
+  }
+
+  getVehiculos(){
+    this.reportesServ.getAllVehiculos().subscribe({
+      next: data => {
+        this.vehiculosSelect = data;
+      },
+      error: err => {
+      }
+    });
   }
 
   view: [number,number] = [900, 400];
@@ -62,10 +53,9 @@ export class MovVehiculoComponent {
     console.log(event);
   }
 
-  datostable: Dato[] = [
-    { fecha: '2023-11-20', sucursal: 'Sucursal A', capacidad: 100 },
-    { fecha: '2023-11-21', sucursal: 'Sucursal B', capacidad: 150 },
-    // ... otros datos
+  datostable = [
+    { fecha: '2023-11-20', sucursal: 'Sucursal J', capacidad: 100 },
+    { fecha: '2023-11-21', sucursal: 'Sucursal B', capacidad: 150 },    
   ];
 
 }

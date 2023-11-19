@@ -14,8 +14,8 @@ export class AnalisisVehiculosComponent {
   sucursalServ = inject(SucursalService);
   sucursalesSelect:Sucursal[];
   analisisServ = inject(AnalisisService);
-  descripcion='asdfasdfawefaw'
-  recomendacion = ''
+  descripcion='asdfasdfawefaw';
+  recomendacion = '';
   datos: any[];
   multiDatos: any[];
 

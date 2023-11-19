@@ -75,7 +75,7 @@
         <div class="graph">
             <h3>Datos predecidos a 1 año</h3>
             <ngx-charts-number-card
-            [results]="single"
+            [results]="datos"
             [view]="view"
             [cardColor]="cardColor"            
             >
@@ -94,7 +94,7 @@
               [xAxisLabel]="xAxisLabel"
               [yAxisLabel]="yAxisLabel"
               [timeline]="timeline"
-              [results]="multi"
+              [results]="multiDatos"
               (select)="onSelect($event)"
               (activate)="onActivate($event)"
               (deactivate)="onDeactivate($event)"

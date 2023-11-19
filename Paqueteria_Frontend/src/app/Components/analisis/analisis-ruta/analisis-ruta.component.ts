@@ -12,13 +12,13 @@ export class AnalisisRutaComponent {
   sucursalForm: string = '';
   sucursales: string[] = [''];
   distancias: string[] = [''];
-  latitud: string = '';
-  longitud: string = '';
-  cantidadVehiculos: string = '';
-  cantidadPersonal: string = '';
   sucursalServ = inject(SucursalService);
   sucursalesSelect:Sucursal[];
   analisisServ = inject(AnalisisService);
+  descripcion='';
+  recomendacion = '';
+  datos: any[];;
+  multiDatos: any[];
 
   constructor(){
     this.getSucursales();
@@ -40,10 +40,6 @@ export class AnalisisRutaComponent {
     // Agrega la lógica de envío del formulario según tus necesidades
     console.log('Sucursales:', this.sucursales);
     console.log('Distancias:', this.distancias);
-    console.log('Longitud:', this.longitud);
-    console.log('Latitud:', this.latitud);
-    console.log('Cantidad Vehiculos:', this.cantidadVehiculos);
-    console.log('Cantidad Personal:', this.cantidadPersonal);
     this.getNuevaSucursal();
     console.log('Descripcion: ', this.descripcion);
     console.log('Sucursal Origen: ', this.sucursalForm)
@@ -60,17 +56,18 @@ export class AnalisisRutaComponent {
   }
 
   getNuevaSucursal(){
-    this.analisisServ.getAnalisisNuevaSucursal().subscribe({
+    this.analisisServ.getAnalisisNuevasRuta(this.sucursalForm,this.sucursales,this.distancias).subscribe({
       next: data => {
-        this.descripcion = data;
+        this.descripcion = data.descripcion;
+        this.recomendacion = data.recomendacion;
+        this.datos = data.datos;
+        this.multiDatos = data.multiDatos;
       },
       error: err => {
         console.log(err)
       }
     });
   }
-
-  descripcion='asdfasdfawefaw'
 
   single = [
     {
