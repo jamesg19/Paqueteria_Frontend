@@ -16,9 +16,11 @@ export class LoginComponent {
 
 
   login(){
+    const id = document.getElementById("id") as HTMLInputElement;
+    const password = document.getElementById("password") as HTMLInputElement;
     const login:Persona=new Persona();
-    login.id=1;
-    login.password='admin123'
+    login.id=+id.value;
+    login.password=password.value;
     this.personaServicio.login(login).subscribe(
       data=>{
         alert("Exito")

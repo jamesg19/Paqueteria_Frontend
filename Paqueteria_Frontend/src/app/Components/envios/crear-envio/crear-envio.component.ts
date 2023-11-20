@@ -81,8 +81,11 @@ onSubmit(){
     envio.idSucursalDestino = this.createShipForm.get("ships.sucursal_destino_id").value;
     envio.nitEmisor = this.createShipForm.get("ships.nit_emisor").value;
     envio.nitReceptor = this.createShipForm.get("ships.nit_receptor").value;
-    envio.fechaLlegada = this.createShipForm.get("ships.fecha_envio").value;
+    envio.fechaLlegada = this.createShipForm.get("ships.fecha_envio").value
+    envio.peso = this.createShipForm.get("ships.peso").value;
+    envio.fecha = this.createShipForm.get("ships.fecha_envio").value;
     envio.subTotal = this.createShipForm.get("ships.tarifa_id").value;
+    envio.estado ="enRuta";
 
     this.envioServ.save(envio).subscribe({
       next: data => {

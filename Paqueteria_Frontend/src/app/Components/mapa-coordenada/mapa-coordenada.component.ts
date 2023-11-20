@@ -47,7 +47,7 @@ export class MapaCoordenadaComponent {
 
 
     
-    this.map = L.map('map').setView([13.811912249339883,-89.8681640625], 4);
+    this.map = L.map('map').setView([15.290100, -90.568587], 8);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
@@ -65,8 +65,7 @@ const puntoD= [13.924807, -90.821041];//Puerto quetzal
 //this.addPointInMap('Sucursal Escuintla',puntoB);
 //this.addPointInMap('Sucursal Barillas',puntoC);
 //this.addPointInMap('Sucursal puerto Quetzal',puntoD);
-    console.log("Punto A")
-    console.log(puntoA);
+
 
     
     for(let i=0;i<this.rutaOneWay.length;i++){
@@ -82,7 +81,7 @@ const puntoD= [13.924807, -90.821041];//Puerto quetzal
       console.log(pointDestino);
       //agregar ruta en carretera
       //this.getRoute(pointOrigen,pointDestino,'blue');
-      //await this.sleep(450);
+      await this.sleep(35);
       //agregar ruta de origen y destino en el mapa
       
       this.addPointInMap(this.rutaOneWay[i].origen.nombre,pointOrigen);

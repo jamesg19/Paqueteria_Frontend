@@ -12,10 +12,12 @@ export class Envio {
   personEmisor:Persona;
   nitReceptor:number;
   personaReceptor:Persona;
-  fechaLlegada:Data;
+  fechaLlegada:Date;
   subTotal:number;
   peso:number;
   volumen:number;
   diasTranscurridos:number
   estado:string;
+  fecha:Date;
+  
 }
