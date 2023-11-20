@@ -87,6 +87,7 @@ onSubmit(){
     this.envioServ.save(envio).subscribe({
       next: data => {
         this.resultado = "Envio Exitoso";
+        alert("Tu numero de rastreo de envio es:"+data.id)
       },
       error: err => {
         console.log(err);
