@@ -10,6 +10,8 @@ import {Envio} from "../../../entidades/envio";
 import {EnviosService} from "../../../Servicios/envios.service";
 import { sucursalValidator, usuarioValidator} from "../../../Validador/validador";
 import {RutaService} from "../../../Servicios/ruta.service";
+import {PasosEnvio} from "../../../entidades/pasos-envio";
+import {HistoricoSucursales} from "../../../entidades/historico-sucursales";
 
 
 @Component({
@@ -63,7 +65,7 @@ buscarPersonaEmisor(){
             sucursal_destino_id:  new FormControl("", Validators.required),
             cantidad_paquetes:  [1],
             peso:  [1],
-            fecha_envio:  [2023],
+            fecha_envio:  [" "],
             tarifa_id:  [1],
             nit_receptor: new FormControl("", Validators.required),
             nit_emisor: new FormControl("", Validators.required)
@@ -81,18 +83,13 @@ onSubmit(){
     envio.idSucursalDestino = this.createShipForm.get("ships.sucursal_destino_id").value;
     envio.nitEmisor = this.createShipForm.get("ships.nit_emisor").value;
     envio.nitReceptor = this.createShipForm.get("ships.nit_receptor").value;
-    envio.fechaLlegada = this.createShipForm.get("ships.fecha_envio").value;
+    envio.fecha = this.createShipForm.get("ships.fecha_envio").value;
     envio.subTotal = this.createShipForm.get("ships.tarifa_id").value;
+    envio.estado = "enRuta";
+    envio.diasTranscurridos = 0;
+    console.log(envio);
 
-    this.envioServ.save(envio).subscribe({
-      next: data => {
-        this.resultado = "Envio Exitoso";
-      },
-      error: err => {
-        console.log(err);
-        this.resultado = err.value;
-      }
-    });
+    this.validacionEnvioSucursales(envio);
 }
 
 
@@ -104,17 +101,38 @@ onSubmit(){
     return this.createShipForm.get('ships.nit_receptor').value;
   }
 
-  getPasos(){
-    let pasos:Sucursal[];
-    let origen, destino;
-    origen = this.createShipForm.get('ships.sucursal_origen_id');
-    destino = this.createShipForm.get('ships.sucursal_destino_id');
-    this.rutaServicio.obtenerRutasOD(origen.value,destino.value).subscribe({
-      next:data => {
-        pasos = data;
-        console.log(pasos);
+
+
+  validacionEnvioSucursales(envio:Envio){
+    let origen = envio.idSucursalOrigen;
+    let destino = envio.idSucursalDestino;
+    this.rutaServicio.obtenerRutaOptima(origen,destino).subscribe({
+      next: data=>{
+        if(data.rutas.length>1  ){
+          this.envioServ.save(envio).subscribe({
+            next:dataSave=> {
+              console.log(dataSave);
+              this.envioServ.savePasosEnvio(data.rutas,dataSave.id).subscribe({
+                next:dataPasos=>{
+                  this.resultado="Envio "+dataSave.id+" Registrado";
+                  let historicoAux = new HistoricoSucursales();
+                  historicoAux.idEnvio = dataSave.id;
+                  historicoAux.idSucursal = envio.idSucursalOrigen;
+                  historicoAux.fecha = envio.fecha;
+                  this.envioServ.saveHistoricoSucursal(historicoAux).subscribe();
+                },
+                error:err => console.log(err)
+              });
+
+            },
+            error:err => console.log(err)
+          });
+        }else{
+          this.resultado="No existe conexion entre las tiendas";
+        }
       },
       error:err => console.log(err)
     });
+
   }
 }

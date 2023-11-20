@@ -1,6 +1,6 @@
 import {Sucursal} from "./sucursal";
 import {Persona} from "./persona";
-import {Data} from "@angular/router";
+import { DatePipe } from '@angular/common'
 
 export class Envio {
   id:number;
@@ -12,7 +12,7 @@ export class Envio {
   personEmisor:Persona;
   nitReceptor:number;
   personaReceptor:Persona;
-  fechaLlegada:Data;
+  fecha:string;
   subTotal:number;
   peso:number;
   volumen:number;

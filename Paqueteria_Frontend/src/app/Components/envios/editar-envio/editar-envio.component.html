@@ -8,6 +8,7 @@
       <thead class="thead-dark">
       <tr>
         <th>Id</th>
+        <th>Estado</th>
         <th>envio Origen</th>
         <th>envio Destino</th>
         <th>Nit Emisor</th>
@@ -26,6 +27,9 @@
           {{envio.id}}
         </th>
         <th>
+          {{envio.estado}}
+        </th>
+        <th>
           {{envio.idSucursalOrigen}}
         </th>
         <th>
@@ -39,7 +43,7 @@
           {{envio.nitReceptor}}
         </th>
         <th>
-          {{envio.fechaLlegada}}
+          {{envio.fecha | date:'yyyy-MM-dd'}}
         </th>
         <th>
           {{envio.subTotal}}

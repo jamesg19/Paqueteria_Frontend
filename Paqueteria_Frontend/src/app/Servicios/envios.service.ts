@@ -3,6 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../enviroments/enviroment";
 import {Envio} from "../entidades/envio";
 import {Observable} from "rxjs";
+import {PasosEnvio} from "../entidades/pasos-envio";
+import {Sucursal} from "../entidades/sucursal";
+import {HistoricoSucursales} from "../entidades/historico-sucursales";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,6 @@ export class EnviosService {
   private httpClient = inject(HttpClient);
 
   public save(envio:Envio):Observable<Envio>{
-    console.log(envio);
     return this.httpClient.post<Envio>(`${this.baseUrl}/save_envio`,envio);
   }
 
@@ -22,5 +24,17 @@ export class EnviosService {
 
   public getEnvios():Observable<Envio[]>{
     return this.httpClient.get<Envio[]>(`${this.baseUrl}/get_all`);
+  }
+
+  public savePasosEnvio(sucursales:Sucursal[],idEnvio):Observable<PasosEnvio>{
+    return this.httpClient.post<PasosEnvio>(`${this.baseUrl}/save_pasos_envio?idEnvio=${idEnvio}`,sucursales);
+  }
+
+  public getPasosEnvio(idEnvio):Observable<PasosEnvio[]>{
+    return this.httpClient.get<PasosEnvio[]>(`${this.baseUrl}/get_pasos_envio?idEnvio=${idEnvio}`);
+  }
+
+  public saveHistoricoSucursal(historico:HistoricoSucursales):Observable<HistoricoSucursales>{
+    return this.httpClient.post<HistoricoSucursales>(`${this.baseUrl}/save_historico_sucursales`,historico);
   }
 }

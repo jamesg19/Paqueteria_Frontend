@@ -12,12 +12,12 @@ import { Ruta } from 'src/app/entidades/ruta';
 })
 export class MapaCoordenadaComponent {
 
-  
+
   rutaOneWay:Ruta[];
   private map;
   routeData: any;
   private readonly ORS_API_KEY = '5b3ce3597851110001cf6248a5cbc51592dd4d54aed714565157f698';
-  
+
 
   constructor(private openRouteServicee:OpenRouteService, private rutaService:RutaService){
 
@@ -26,7 +26,7 @@ export class MapaCoordenadaComponent {
   ngOnInit(): void {
     this.getData();
 
-    
+
   }
   getData(){
     this.rutaService.obtenerRutasMapaCoordenadas().subscribe(
@@ -35,7 +35,7 @@ export class MapaCoordenadaComponent {
         console.log(this.rutaOneWay.length)
         console.log(this.rutaOneWay[0].origen.idSucursal)
         this.iniciarMapa();
-        
+
       }
       ,error=>{
         alert("Error al obtener rutas")
@@ -46,14 +46,14 @@ export class MapaCoordenadaComponent {
   private async iniciarMapa() {
 
 
-    
+
     this.map = L.map('map').setView([13.811912249339883,-89.8681640625], 4);
-    
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
 
-    
+
     const puntoA = [14.702906, -91.865087];//Coatepeque
 const puntoB = [14.300459, -90.785193];//Escuintla
 const puntoC = [15.801999, -91.316643];//Barillas
@@ -70,10 +70,10 @@ this.addPointInMap('Sucursal puerto Quetzal',puntoD);
     console.log("Punto A")
     console.log(puntoA);
 
-    
+
     for(let i=0;i<this.rutaOneWay.length;i++){
       console.log(this.rutaOneWay[i].origen.longitud+","+this.rutaOneWay[i].origen.latitud);
-      
+
       const pointOrigen=[this.rutaOneWay[i].origen.longitud,this.rutaOneWay[i].origen.latitud];
       const pointDestino=[this.rutaOneWay[i].destino.longitud,this.rutaOneWay[i].destino.latitud];
 
@@ -86,7 +86,7 @@ this.addPointInMap('Sucursal puerto Quetzal',puntoD);
       //this.getRoute(pointOrigen,pointDestino,'blue');
       //await this.sleep(450);
       //agregar ruta de origen y destino en el mapa
-      
+
       this.addPointInMap(this.rutaOneWay[i].origen.nombre,pointOrigen);
       //await this.sleep(450);
     }
@@ -98,12 +98,12 @@ this.addPointInMap('Sucursal puerto Quetzal',puntoD);
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  
+
   /**
    * Agregamos un marcador para ubicar la sucursal
-   * 
-   * @param name 
-   * @param point 
+   *
+   * @param name
+   * @param point
    */
   addPointInMap(name:string,point:number[]){
 
@@ -116,9 +116,9 @@ this.addPointInMap('Sucursal puerto Quetzal',puntoD);
 
   /**
    * Obtenemos la ruta por carretra y usamos el servicio de getRoute
-   * @param start 
-   * @param end 
-   * @param colorValue 
+   * @param start
+   * @param end
+   * @param colorValue
    */
   getRoute(start:number[],end:number[],colorValue:string){
     this.openRouteServicee.getRoute(start, end).subscribe(data => {
@@ -128,16 +128,16 @@ this.addPointInMap('Sucursal puerto Quetzal',puntoD);
             // Ajusta el mapa para mostrar la ruta completa
             this.map.fitBounds(ruta);
       console.log('Datos de la ruta:', this.routeData);
-    
+
 
     });
 
   }
 
 
-  
+
   /*
-  
+
   map: L.Map;
 
   constructor() { }
@@ -148,11 +148,11 @@ this.addPointInMap('Sucursal puerto Quetzal',puntoD);
 
   initMap() {
     this.map = L.map('map').setView([15.511912249339883,-89.8681640625], 8); // Coordenadas para centrar el mapa en Washington D.C.
-   
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
-    
+
   }*/
 
 }
