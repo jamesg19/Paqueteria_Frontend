@@ -18,6 +18,6 @@ export class Envio {
   volumen:number;
   diasTranscurridos:number
   estado:string;
-  fecha:Date;
-  
+  fecha:string;
+
 }

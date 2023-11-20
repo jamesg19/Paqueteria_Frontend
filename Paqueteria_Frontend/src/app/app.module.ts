@@ -33,6 +33,7 @@ import { ExcedenteComponent } from './Components/reportes/excedente/excedente.co
 import { MovSucursalComponent } from './Components/reportes/mov-sucursal/mov-sucursal.component';
 import { MovVehiculoComponent } from './Components/reportes/mov-vehiculo/mov-vehiculo.component';
 import { LoginComponent } from './Components/login/login.component';
+import { SimulacionComponent } from './Components/simulacion/simulacion.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { LoginComponent } from './Components/login/login.component';
     ExcedenteComponent,
     MovSucursalComponent,
     MovVehiculoComponent,
-    LoginComponent
+    LoginComponent,
+    SimulacionComponent
   ],
     imports: [
         BrowserModule,
