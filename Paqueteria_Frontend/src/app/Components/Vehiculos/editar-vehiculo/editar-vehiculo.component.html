@@ -1,0 +1,100 @@
+
+
+<div class="container">
+  <br><br><br><br><br>
+
+  <div class="centered-content" >
+    <h2>Listar y editar sucursal</h2>
+    <h3> Mostrar vehiculos de la sucursal: </h3>
+    <select class="custom-select"   required (change)="buscarVehiculoEnSucursal(14)">
+      <option *ngFor="let item of sucursales" [value]="item.idSucursal">{{item.idSucursal}}-{{item.nombre}}</option>
+
+    </select>
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Marca  </th>
+        <th>Tipo</th>
+        <th>Placa</th>
+        <th>Año</th>
+        <th>Asientos</th>
+        <th>Capacidad Volumen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th>Capacidad Toneladas</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr>
+        <br>
+      </tr>
+      <tr *ngFor="let vehiculo of vehiculos">
+        <th>
+          {{vehiculo.id}}, {{vehiculo.sucursal.idSucursal}}
+        </th>
+        <th>
+
+          <select [id]="'marca-' + vehiculo.id" class="custom-select" id="marca"  required formControlName="marca">
+            <option [selected]="vehiculo.marca+''==='MERCEDEZ BENZ'" value="Mercedez Benz">Mercedez Benz</option>
+            <option [selected]="vehiculo.marca=='KIA'"  value="Kia">Kia</option>
+            <option [selected]="vehiculo.marca=='TOYOTA'" value="Toyota">Toyota</option>
+            <option [selected]="vehiculo.marca=='MITSUBISHI FUSO'" value="Mitsubishi">Mitsubishi</option>
+            <option [selected]="vehiculo.marca=='FORD'" value="Ford">Ford</option>
+            <option [selected]="vehiculo.marca=='HINO'" value="Hino">Hino</option>
+            <option [selected]="vehiculo.marca=='ISUZU'" value="Isuzu">Isuzu</option>
+            <option [selected]="vehiculo.marca=='SUBARU'" value="Subaru">Subaru</option>
+            <option [selected]="vehiculo.marca=='HONDA'" value="Subaru">Subaru</option>
+            <option [selected]="vehiculo.marca=='NISSAN'" value="Subaru">Subaru</option>
+          </select>
+
+        </th>
+        <th>
+          <input type="text"   [id]="'tipo-' + vehiculo.id" value="{{vehiculo.placa}}" >
+        </th>
+        <th>
+          <input type="text"   [id]="'placa-' + vehiculo.id" value="{{vehiculo.placa}}" >
+        </th>
+        <th>
+          <input type="number" min="0"   [id]="'anio-' + vehiculo.id" value="{{vehiculo.anio}}" >
+        </th>
+        <th>
+
+          <input type="number" min="0"   [id]="'asientos-' + vehiculo.id" value="{{vehiculo.noAsientos}}" >
+        </th>
+        <th>
+
+          <input type="number"   [id]="'volumen-' + vehiculo.id" value="{{vehiculo.capacidadVol}}" >
+        </th>
+        <th>
+
+          <input type="number"   [id]="'ton-' + vehiculo.id" value="{{vehiculo.capacidadTon}}" >
+        </th>
+
+
+        <th>
+          <button type="button" (click)="updateVehiculo(vehiculo.id,vehiculo.sucursal.idSucursal)" class="btn btn-warning">Guardar</button>
+        </th>
+
+
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+      </tbody>
+    </table>
+
+
+
+  </div>
+  <app-map></app-map>
+
+
+</div>
