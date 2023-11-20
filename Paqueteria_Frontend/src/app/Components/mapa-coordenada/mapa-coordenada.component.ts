@@ -59,14 +59,12 @@ const puntoB = [14.300459, -90.785193];//Escuintla
 const puntoC = [15.801999, -91.316643];//Barillas
 const puntoD= [13.924807, -90.821041];//Puerto quetzal
 
-this.getRoute(puntoA,puntoB,'blue');
-this.getRoute(puntoA,puntoC,'red');
-this.getRoute(puntoB,puntoD,'blue');
 
-this.addPointInMap('Sucursal Coatepeque',puntoA);
-this.addPointInMap('Sucursal Escuintla',puntoB);
-this.addPointInMap('Sucursal Barillas',puntoC);
-this.addPointInMap('Sucursal puerto Quetzal',puntoD);
+
+//this.addPointInMap('Sucursal Coatepeque',puntoA);
+//this.addPointInMap('Sucursal Escuintla',puntoB);
+//this.addPointInMap('Sucursal Barillas',puntoC);
+//this.addPointInMap('Sucursal puerto Quetzal',puntoD);
     console.log("Punto A")
     console.log(puntoA);
 
@@ -136,23 +134,6 @@ this.addPointInMap('Sucursal puerto Quetzal',puntoD);
 
 
   
-  /*
-  
-  map: L.Map;
 
-  constructor() { }
-
-  ngOnInit() {
-    this.initMap();
-  }
-
-  initMap() {
-    this.map = L.map('map').setView([15.511912249339883,-89.8681640625], 8); // Coordenadas para centrar el mapa en Washington D.C.
-   
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(this.map);
-    
-  }*/
 
 }
