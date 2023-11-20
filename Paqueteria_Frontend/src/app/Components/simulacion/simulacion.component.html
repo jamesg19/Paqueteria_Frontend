@@ -1,1 +1,159 @@
-<p>simulacion works!</p>
+<div >
+
+
+    <div class="container">
+        <br><br><br><br><br>
+            <!-- Otros campos de formulario si los tienes -->
+            <div class="centered-content" >
+                <button class="btn btn-info" (click)="simular()"  type="button">Simular...</button>
+                <h2>Envios</h2>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                          <th>Id</th>
+                          <th>Origen</th>
+                          <th>Destino</th>
+                          <th>Nit emisor</th>
+                          <th>Nit receptor</th>
+                          <th>Fecha</th>
+                          <th>Dias transcurridos</th>
+
+                        </tr>
+                        </thead>    
+                    <tbody>
+
+                        <tr *ngFor="let item of envios">
+                          <th>
+                            {{item.id}}
+                          </th>
+                          <th>
+                            {{item.sucursalOrigen.nombre}}
+                        </th>
+                        <th>
+                            {{item.sucursalDestino.nombre}}
+                        </th>
+                        <th>
+                            {{item.personaEmisor.nombre}}
+                        </th>
+                        <th>
+                            {{item.personaReceptor.nombre}}
+                        </th>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <h2>Historico por sucursal</h2>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                          <th>Id</th>
+                          <th>Id Envio</th>
+                          <th>Id Sucursal Actual</th>
+                          <th>Id vehiculo Actual</th>
+                          <th>Fecha</th>
+
+                        </tr>
+                        </thead>    
+                    <tbody>
+
+                        <tr *ngFor="let item of historicoSucursal">
+                          <th>
+                            {{item.id}}
+                          </th>
+                          <th>
+                            {{item.idEnvio}}
+                          </th>
+                          <th>
+                            {{item.idSucursal}}
+                          </th>
+                          <th>
+                            {{item.idVehiculo}}
+                          </th>
+                          <th>
+                            {{item.fecha}}
+                          </th>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <h2>Historico por vehiculo</h2>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                          <th>Id</th>
+                          <th>Id vehiculo</th>
+                          <th>Id sucursal</th>
+                          <th>Ocupacion</th>
+                          <th>fecha</th>
+
+                        </tr>
+                        </thead>    
+                    <tbody>
+
+                        <tr *ngFor="let item of historicoVehiculo">
+                            <th>
+                              {{item.id}}
+                            </th>
+                            <th>
+                              {{item.idVehiculo}}
+                            </th>
+                            <th>
+                              {{item.idSucursal}}
+                            </th>
+                            <th>
+                              {{item.ocupacion}}
+                            </th>
+                            <th>
+                              {{item.fecha}}
+                            </th>
+  
+                          </tr>
+
+                    </tbody>
+
+                </table>
+
+                <h2>Envios Atrasados</h2>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                          <th>Id</th>
+                          <th>Id envio</th>
+                          <th>Id sucursal</th>
+                        </tr>
+                        </thead>    
+                    <tbody>
+
+                        <tr *ngFor="let item of envioAtrasado">
+                            <th>
+                              {{item.id}}
+                            </th>
+                            <th>
+                              {{item.idEnvio}}
+                            </th>
+                            <th>
+                              {{item.idSucursal}}
+                            </th>
+
+  
+                          </tr>
+
+                    </tbody>
+
+                </table>
+
+
+
+            </div>
+            <app-map></app-map>
+
+
+    </div>
+
+
+    </div>
