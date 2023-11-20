@@ -27,4 +27,8 @@ export class PersonaService {
   editar(persona:Persona):Observable<any>{
     return this.httpClient.put<any>(`${this.baseUrl}/editar_persona`, persona);
   }
+
+  login(persona:Persona):Observable<Persona>{
+    return this.httpClient.post<Persona>(`${this.baseUrl}/login`, persona);
+  }
 }

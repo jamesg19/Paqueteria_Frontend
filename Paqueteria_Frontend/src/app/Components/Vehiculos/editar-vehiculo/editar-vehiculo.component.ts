@@ -82,7 +82,6 @@ export class EditarVehiculoComponent {
 
 
   getVehiculos(id:number){
-    alert(id)
     this.vehiculoService.getVehiculosBySucursalId(id).subscribe(
       data=>{
         this.vehiculos=data;

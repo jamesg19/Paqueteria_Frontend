@@ -32,6 +32,7 @@ import { DashboardComponent } from './Components/reportes/dashboard/dashboard.co
 import { ExcedenteComponent } from './Components/reportes/excedente/excedente.component';
 import { MovSucursalComponent } from './Components/reportes/mov-sucursal/mov-sucursal.component';
 import { MovVehiculoComponent } from './Components/reportes/mov-vehiculo/mov-vehiculo.component';
+import { LoginComponent } from './Components/login/login.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { MovVehiculoComponent } from './Components/reportes/mov-vehiculo/mov-veh
     DashboardComponent,
     ExcedenteComponent,
     MovSucursalComponent,
-    MovVehiculoComponent
+    MovVehiculoComponent,
+    LoginComponent
   ],
     imports: [
         BrowserModule,
