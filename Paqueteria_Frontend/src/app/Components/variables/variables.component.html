@@ -1,0 +1,34 @@
+<h2>Detalle Envio</h2>
+<div>
+  <table class="tablaSucursalOrigen">
+    <thead>
+    <label>Variables de experimentacion</label>
+    <tr>
+      <th>Id</th>
+      <th>Descripcion</th>
+      <th>Valor</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+      <br>
+    </tr>
+    <tr *ngFor="let variable of variables;let i = index" id="{{i}}">
+      <th>
+        {{variable.id}}
+      </th>
+      <th>
+        {{variable.descripcion}}
+      </th>
+      <th>
+        <label>{{variable.valor}}
+          <br>
+          <input placeholder="Nuevo nombre" [(ngModel)]="variables[i].valor">
+        </label>
+      </th>
+    </tr>
+
+    </tbody>
+  </table>
+</div>

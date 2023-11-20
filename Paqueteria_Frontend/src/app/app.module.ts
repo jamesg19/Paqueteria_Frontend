@@ -34,6 +34,7 @@ import { MovSucursalComponent } from './Components/reportes/mov-sucursal/mov-suc
 import { MovVehiculoComponent } from './Components/reportes/mov-vehiculo/mov-vehiculo.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SimulacionComponent } from './Components/simulacion/simulacion.component';
+import { VariablesComponent } from './Components/variables/variables.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { SimulacionComponent } from './Components/simulacion/simulacion.componen
     MovSucursalComponent,
     MovVehiculoComponent,
     LoginComponent,
-    SimulacionComponent
+    SimulacionComponent,
+    VariablesComponent
   ],
     imports: [
         BrowserModule,

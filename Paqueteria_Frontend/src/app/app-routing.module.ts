@@ -22,6 +22,8 @@ import { MovSucursalComponent } from './Components/reportes/mov-sucursal/mov-suc
 import { MovVehiculoComponent } from './Components/reportes/mov-vehiculo/mov-vehiculo.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SimulacionComponent } from './Components/simulacion/simulacion.component';
+import {VariablesComponent} from "./Components/variables/variables.component";
+
 
 const routes: Routes = [
   {path: 'create_ship', component: CrearEnvioComponent},
@@ -48,13 +50,15 @@ const routes: Routes = [
   {path: 'analisis-ruta', component: AnalisisRutaComponent},
   {path: 'analisis-vehiculos', component: AnalisisVehiculosComponent},
   {path: 'analisis-sucursal', component: AnalisisSucursalComponent},
-  
+
   {path: 'dashboard', component: DashboardComponent},
   {path: 'excedente', component: ExcedenteComponent},
   {path: 'mov-sucursal', component: MovSucursalComponent},
   {path: 'mov-vehiculo', component: MovVehiculoComponent},
   {path: 'login', component: LoginComponent},
   {path: 'simulacion', component: SimulacionComponent},
+  {path:'variables',component:VariablesComponent}
+
 ];
 
 @NgModule({
