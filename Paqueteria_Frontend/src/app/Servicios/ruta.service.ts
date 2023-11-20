@@ -4,6 +4,7 @@ import { Ruta } from '../entidades/ruta';
 import { environment } from 'src/enviroments/enviroment';
 import { Observable } from 'rxjs';
 import {Sucursal} from "../entidades/sucursal";
+import {RutaOptima} from "../entidades/ruta-optima";
 
 @Injectable({
   providedIn: 'root'
@@ -31,14 +32,14 @@ export class RutaService {
     return this.httpClient.get<Ruta[]>(rutasUrl);
   }
 
-  obtenerRutasOD( origen:String,destino:String):Observable<Sucursal[]>{
-    return this.httpClient.get<Sucursal[]>(`${this.baseUrl}/ruta_optima/get_ruta?origen=${origen}&destino=${destino}`);
+
+  obtenerRutaOptima(origen:number,destino:number):Observable<RutaOptima>{
+    return this.httpClient.get<RutaOptima>(`${this.baseUrl}/ruta_optima/get_ruta?origen=${origen}&destino=${destino}`);
   }
 
   saveRutass( ruta:Ruta):Observable<Ruta>{
     return this.httpClient.post<Ruta>(`${this.baseUrl}/rutas/save_rutas`,ruta);
   }
-
 
 
 }

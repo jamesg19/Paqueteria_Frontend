@@ -23,14 +23,14 @@
                         <tr>
                           <th>
                             Nit emisor:
-                            <input id="nombre_emisor" type="text" class="form-control" formControlName="nit_emisor">
+                            <input id="nombre_emisor" type="number" class="form-control" formControlName="nit_emisor">
                             <button type="button" (click)="buscarPersonaEmisor()">Validar</button>
                             Nombre:
                             <label [textContent]="nombre_emisor">Nombre:</label>
                           </th>
                           <th>
                             Nit receptor:
-                            <input id="nombre_receptor" type="text" class="form-control"  formControlName="nit_receptor">
+                            <input id="nombre_receptor" type="number" class="form-control"  formControlName="nit_receptor">
                             <button type="button" (click)="buscarPersonaReceptor()">Validar</button>
                             Nombre:
                             <label [textContent]="nombre_receptor"></label>
@@ -41,7 +41,7 @@
                             <th>
                                 Sucursal Origen:
                                 <select class="custom-select" id="sucursal_origen_id" formControlName="sucursal_origen_id">
-                                    <option *ngFor="let sucursal of sucursales" [ngValue]="sucursal.idSucursal">{{sucursal.idSucursal}},{{sucursal.nombre}},{{sucursal.municipio.nombre}},{{sucursal.departamento.nombre}}</option>
+                                    <option *ngFor="let sucursal of sucursales" [ngValue]="sucursal.idSucursal">{{sucursal.nombre}}</option>
                                 </select>
                             </th>
                             <th>
@@ -50,7 +50,6 @@
                                   <option *ngFor="let sucursal of sucursales" [ngValue]="sucursal.idSucursal">{{sucursal.nombre}}</option>
                                 </select>
                             </th>
-                          <button type="button" (click)="getPasos()">Obtener ruta</button>
                         </tr>
                         <br>
                         <tr>

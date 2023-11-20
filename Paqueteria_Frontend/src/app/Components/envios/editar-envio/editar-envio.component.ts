@@ -5,6 +5,8 @@ import {PersonaService} from "../../../Servicios/persona.service";
 import {Persona} from "../../../entidades/persona";
 import {MatDialog} from "@angular/material/dialog";
 import {DetalleComponent} from "../detalle/detalle.component";
+import { DatePipe } from '@angular/common';
+import {DateAdapter} from "@angular/material/core";
 
 
 @Component({
@@ -18,13 +20,16 @@ export class EditarEnvioComponent {
   envios:Envio [];
   constructor(private dialog:MatDialog) {
     this.enviosService.getEnvios().subscribe({
-      next:data=>this.envios = data,
+      next:data=>{
+        this.envios = data;
+        console.log(this.envios);
+      },
       error:err=>alert("Error al recuperar envios")
   })}
 
   abrirDialogo(envio:Envio){
     console.log(envio)
-    this.dialog.open(DetalleComponent,{ data: { env: envio }, width: "600px" });
+    this.dialog.open(DetalleComponent,{ data: { env: envio }, width: "800px" });
   }
   datosPersonaNit(nit){
     let retorno="";
@@ -39,4 +44,5 @@ export class EditarEnvioComponent {
     return retorno;
   }
 
+  protected readonly DatePipe = DatePipe;
 }

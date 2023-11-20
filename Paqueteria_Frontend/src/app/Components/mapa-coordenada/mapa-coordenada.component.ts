@@ -12,12 +12,12 @@ import { Ruta } from 'src/app/entidades/ruta';
 })
 export class MapaCoordenadaComponent {
 
-  
+
   rutaOneWay:Ruta[];
   private map;
   routeData: any;
   private readonly ORS_API_KEY = '5b3ce3597851110001cf6248a5cbc51592dd4d54aed714565157f698';
-  
+
 
   constructor(private openRouteServicee:OpenRouteService, private rutaService:RutaService){
 
@@ -26,7 +26,7 @@ export class MapaCoordenadaComponent {
   ngOnInit(): void {
     this.getData();
 
-    
+
   }
   getData(){
     this.rutaService.obtenerRutasMapaCoordenadas().subscribe(
@@ -35,7 +35,7 @@ export class MapaCoordenadaComponent {
         console.log(this.rutaOneWay.length)
         console.log(this.rutaOneWay[0].origen.idSucursal)
         this.iniciarMapa();
-        
+
       }
       ,error=>{
         alert("Error al obtener rutas")
@@ -53,7 +53,7 @@ export class MapaCoordenadaComponent {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
 
-    
+
     const puntoA = [14.702906, -91.865087];//Coatepeque
 const puntoB = [14.300459, -90.785193];//Escuintla
 const puntoC = [15.801999, -91.316643];//Barillas
@@ -67,10 +67,10 @@ const puntoD= [13.924807, -90.821041];//Puerto quetzal
 //this.addPointInMap('Sucursal puerto Quetzal',puntoD);
 
 
-    
+
     for(let i=0;i<this.rutaOneWay.length;i++){
       console.log(this.rutaOneWay[i].origen.longitud+","+this.rutaOneWay[i].origen.latitud);
-      
+
       const pointOrigen=[this.rutaOneWay[i].origen.longitud,this.rutaOneWay[i].origen.latitud];
       const pointDestino=[this.rutaOneWay[i].destino.longitud,this.rutaOneWay[i].destino.latitud];
 
@@ -83,7 +83,7 @@ const puntoD= [13.924807, -90.821041];//Puerto quetzal
       //this.getRoute(pointOrigen,pointDestino,'blue');
       await this.sleep(35);
       //agregar ruta de origen y destino en el mapa
-      
+
       this.addPointInMap(this.rutaOneWay[i].origen.nombre,pointOrigen);
       //await this.sleep(450);
     }
@@ -95,12 +95,12 @@ const puntoD= [13.924807, -90.821041];//Puerto quetzal
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  
+
   /**
    * Agregamos un marcador para ubicar la sucursal
-   * 
-   * @param name 
-   * @param point 
+   *
+   * @param name
+   * @param point
    */
   addPointInMap(name:string,point:number[]){
 
@@ -113,9 +113,9 @@ const puntoD= [13.924807, -90.821041];//Puerto quetzal
 
   /**
    * Obtenemos la ruta por carretra y usamos el servicio de getRoute
-   * @param start 
-   * @param end 
-   * @param colorValue 
+   * @param start
+   * @param end
+   * @param colorValue
    */
   getRoute(start:number[],end:number[],colorValue:string){
     this.openRouteServicee.getRoute(start, end).subscribe(data => {
@@ -125,7 +125,7 @@ const puntoD= [13.924807, -90.821041];//Puerto quetzal
             // Ajusta el mapa para mostrar la ruta completa
             this.map.fitBounds(ruta);
       console.log('Datos de la ruta:', this.routeData);
-    
+
 
     });
 

@@ -9,6 +9,10 @@
           <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
         </li>
 
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Simular<span class="sr-only">(current)</span></a>
+        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Envio
@@ -42,7 +46,7 @@
           </div>
         </li>
 
-        
+
         <li class="nav-item dropdown" *ngIf="isAdmin">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Vehiculos
@@ -75,14 +79,14 @@
             <a class="dropdown-item" href="maps_live">Ver Mapa de rutas</a>
           </div>
         </li>
-        
+
         <li class="nav-item dropdown" *ngIf="isAdmin">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Analisis
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-            <a class="dropdown-item" href="analisis-sucursal">Analizar nueva Sucursal</a>            
+            <a class="dropdown-item" href="analisis-sucursal">Analizar nueva Sucursal</a>
             <!--<a class="dropdown-item" href="analisis-ruta">Analizar nuevas Rutas</a>            -->
             <a class="dropdown-item" href="analisis-vehiculos">Analizar nuevos vehiculos</a>
           </div>
@@ -94,7 +98,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-            <a class="dropdown-item" href="dashboard">Dashboard del mes</a>            
+            <a class="dropdown-item" href="dashboard">Dashboard del mes</a>
             <!--<a class="dropdown-item" href="excedente">Excedente</a>            -->
             <a class="dropdown-item" href="mov-sucursal">Movimientos por Sucursal</a>
             <a class="dropdown-item" href="mov-vehiculo">Movimientos por Vehiculo</a>
@@ -107,8 +111,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-            <a class="dropdown-item" href="login">Login</a>            
-            <a class="dropdown-item" (click)="logout()">Log out</a>            
+            <a class="dropdown-item" href="login">Login</a>
+            <a class="dropdown-item" (click)="logout()">Log out</a>
 
           </div>
         </li>
