@@ -47,11 +47,11 @@ export class NavbarComponent {
   }
 
   logout(){
-    this.router.navigate(['/login']);
+    
     localStorage.removeItem("ROL_PAQUETERIA");
     localStorage.removeItem("NOMBRE_PAQUETERIA");
     localStorage.removeItem("ID_PAQUETERIA");
-      
+    this.router.navigate(['/login']);
     
   }
 
