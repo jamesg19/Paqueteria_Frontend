@@ -1,0 +1,103 @@
+<form class="form">
+
+    <div>
+        <h2>Analizar Sucursal</h2>
+        <h3>Parametros inciales</h3>
+    </div>
+
+    <div class="form-group">
+        <label for="sucursal">Sucursal:</label>
+        <select id="sucursal" name="sucursal" [(ngModel)]="sucursalForm" class="form-control">
+          <option *ngFor="let sucursal of sucursalesSelect" [ngValue]="sucursal.idSucursal">{{sucursal.idSucursal}},{{sucursal.nombre}},{{sucursal.municipio.nombre}},{{sucursal.departamento.nombre}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="fechaAnalizar">Fecha Limite</label>
+        <input type="date" id="fechaAnalizar" name="fechaAnalizar" [(ngModel)]="fechaAnalizar" class="form-control" required>
+    </div>
+  
+    <div>
+        <!-- Botón para enviar el formulario (puedes agregar lógica según tus necesidades) -->
+        <button type="button" (click)="enviarFormulario()" class="btn btn-primary enviar">Enviar</button>
+    </div>
+</form>
+
+<br/>
+<br/>
+
+<div class="prediccion">
+    <h1>Reporte de movimientos de sucursal</h1>
+
+    <div>        
+        <div class="graph">
+            <h3>Datos generales</h3>
+            <ngx-charts-number-card
+            [results]="datos"
+            [view]="view"
+            [cardColor]="cardColor"            
+            >
+            </ngx-charts-number-card>
+        </div>
+
+        <div>
+            <h2>Envios Recibidos</h2>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>Id Envio</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let dato1 of datostable1">
+                    <td>{{ dato1.idEnvio }}</td>
+                    <td>{{ dato1.fecha }}</td>
+                    <td>{{ dato1.estado }}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <div>
+            <h2>Envios Enviados</h2>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>Id Envio</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let dato2 of datostable2">
+                    <td>{{ dato2.idEnvio }}</td>
+                    <td>{{ dato2.fecha }}</td>
+                    <td>{{ dato2.estado }}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <div>
+            <h2>Envios De Paso</h2>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>Id Envio</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let dato3 of datostable3">
+                    <td>{{ dato3.idEnvio }}</td>
+                    <td>{{ dato3.fecha }}</td>
+                    <td>{{ dato3.estado }}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

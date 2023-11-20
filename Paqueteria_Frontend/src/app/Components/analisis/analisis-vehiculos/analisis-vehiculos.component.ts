@@ -14,6 +14,10 @@ export class AnalisisVehiculosComponent {
   sucursalServ = inject(SucursalService);
   sucursalesSelect:Sucursal[];
   analisisServ = inject(AnalisisService);
+  descripcion='asdfasdfawefaw';
+  recomendacion = '';
+  datos: any[];
+  multiDatos: any[];
 
   constructor(){
     this.getSucursales();
@@ -21,8 +25,6 @@ export class AnalisisVehiculosComponent {
 
 
   enviarFormularioVehiculos(){
-    console.log('Cantidad Vehiculos:', this.cantidadVehiculos);
-    console.log('Sucursal:', this.sucursalForm);
     this.getVehiculosSucursal();
   }
 
@@ -36,10 +38,13 @@ export class AnalisisVehiculosComponent {
     });
   }
 
-  getVehiculosSucursal(){
-    this.analisisServ.getAnalisisNuevaSucursal().subscribe({
+  getVehiculosSucursal(){    
+    this.analisisServ.getAnalisisNuevosVehiculos(this.cantidadVehiculos,this.sucursalForm).subscribe({
       next: data => {
-        this.descripcion = data;
+        this.descripcion = data.descripcion;
+        this.recomendacion = data.recomendacion;
+        this.datos = data.datos;
+        this.multiDatos = data.multiDatos;
       },
       error: err => {
         console.log(err)
@@ -47,19 +52,18 @@ export class AnalisisVehiculosComponent {
     });
   }
 
-  descripcion='asdfasdfawefaw'
 
   single = [
     {
-      "name": "Estimado de envios Envios",
+      "name": "Estimado de envios realizados por nuevos vehiculos",
       "value": 50,      
     },
     {
-      "name": "Estimado de Ganancias",
+      "name": "Estimado de gastos por gasolina",
       "value": 3200,
     },
     {
-      "name": "Estimado de Gastos",
+      "name": "Estimado de ganancias",
       "value": 3800,
     },
     {

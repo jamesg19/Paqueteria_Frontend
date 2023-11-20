@@ -28,6 +28,11 @@ import { AnalisisSucursalComponent } from './Components/analisis/analisis-sucurs
 import { AnalisisVehiculosComponent } from './Components/analisis/analisis-vehiculos/analisis-vehiculos.component';
 import { AgregarVehiculoComponent } from './Components/Vehiculos/agregar-vehiculo/agregar-vehiculo.component';
 import { EditarVehiculoComponent } from './Components/Vehiculos/editar-vehiculo/editar-vehiculo.component';
+import { DashboardComponent } from './Components/reportes/dashboard/dashboard.component';
+import { ExcedenteComponent } from './Components/reportes/excedente/excedente.component';
+import { MovSucursalComponent } from './Components/reportes/mov-sucursal/mov-sucursal.component';
+import { MovVehiculoComponent } from './Components/reportes/mov-vehiculo/mov-vehiculo.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +55,11 @@ import { EditarVehiculoComponent } from './Components/Vehiculos/editar-vehiculo/
     AnalisisSucursalComponent,
     AnalisisVehiculosComponent,
     AgregarVehiculoComponent,
-    EditarVehiculoComponent
+    EditarVehiculoComponent,
+    DashboardComponent,
+    ExcedenteComponent,
+    MovSucursalComponent,
+    MovVehiculoComponent
   ],
     imports: [
         BrowserModule,

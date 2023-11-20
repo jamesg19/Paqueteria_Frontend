@@ -11,12 +11,37 @@ export class AnalisisService {
 
   constructor(private httpClient:HttpClient) { }
 
-  getAnalisisNuevaSucursal(): Observable<any> {
+  getAnalisisNuevaSucursal(longitud:string,latitud:string,cantidadVehiculos:string
+    ,cantidadPersonal:string, sucursales:any, distancias:any): Observable<any> {
+    const cuerpoSolicitud = {
+      longitud: longitud,
+      latitud:latitud,
+      cantidadVehiculos:cantidadVehiculos,
+      cantidadPersonal:cantidadPersonal,
+      sucursales: sucursales,
+      distancias:distancias
+    };
+    const sucursalUrl = `${this.baseUrl}/nuevasucursal`;    
+    const respuesta = this.httpClient.post<any>(sucursalUrl, cuerpoSolicitud);
+    return respuesta;
+  }
+
+
+  getAnalisisNuevosVehiculos(cantidadVehiculos:string,sucursalForm:string): Observable<any> {
     // need to build URL based on product id
-    const sucursalUrl = `${this.baseUrl}/nuevaSucursal`;
+    const sucursalUrl = `${this.baseUrl}/nuevosVehiculos?cantidadVehiculos=${cantidadVehiculos}&sucursalForm=${sucursalForm}`;
     const respuesta = this.httpClient.get<string>(sucursalUrl);
-    console.log("La respuesta del server es: ");
-    console.log(respuesta);
+    return respuesta;
+  }
+
+  getAnalisisNuevasRuta(sucursalorigen:string, sucursales:any,distancias:any): Observable<any> {
+    const cuerpoSolicitud = {
+      sucursalorigen: sucursalorigen,
+      sucursales: sucursales,
+      distancias:distancias
+    };
+    const sucursalUrl = `${this.baseUrl}/nuevaruta`;    
+    const respuesta = this.httpClient.post<any>(sucursalUrl, cuerpoSolicitud);
     return respuesta;
   }
 }

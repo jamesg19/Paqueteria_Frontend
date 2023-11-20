@@ -1,0 +1,57 @@
+<form class="form">
+
+    <div>
+        <h2>Analizar Vehiculo</h2>
+        <h3>Parametros inciales</h3>
+    </div>
+
+    <div class="form-group">
+        <label for="vehiculo">Vehiculo:</label>
+        <select id="vehiculo" name="vehiculo" [(ngModel)]="vehiculoForm" class="form-control">
+          <option *ngFor="let vehiculo of vehiculosSelect" [ngValue]="vehiculo[0]">{{vehiculo[0]}},{{vehiculo[1]}},{{vehiculo[2]}},{{vehiculo[3]}}</option>
+        </select>
+    </div>
+  
+    <div>
+        <!-- Botón para enviar el formulario (puedes agregar lógica según tus necesidades) -->
+        <button type="button" (click)="enviarFormulario()" class="btn btn-primary enviar">Enviar</button>
+    </div>
+</form>
+
+<br/>
+<br/>
+
+<div class="prediccion">
+    <h1>Reporte de movimientos de sucursal</h1>
+
+    <div>        
+        <div class="graph">
+            <h3>Datos generales</h3>
+            <ngx-charts-number-card
+            [results]="datos"
+            [view]="view"
+            [cardColor]="cardColor"            
+            >
+            </ngx-charts-number-card>
+        </div>
+    </div>
+
+    <div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Sucursal</th>
+                <th>Capacidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dato of datostable">
+                <td>{{ dato.fecha }}</td>
+                <td>{{ dato.sucursal }}</td>
+                <td>{{ dato.capacidad }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

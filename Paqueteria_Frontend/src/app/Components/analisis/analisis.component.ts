@@ -45,7 +45,7 @@ export class AnalisisComponent {
     console.log('Latitud:', this.latitud);
     console.log('Cantidad Vehiculos:', this.cantidadVehiculos);
     console.log('Cantidad Personal:', this.cantidadPersonal);
-    this.getNuevaSucursal();
+    //this.getNuevaSucursal();
     console.log('Descripcion: ', this.descripcion);
   }
 
@@ -63,7 +63,7 @@ export class AnalisisComponent {
       }
     });
   }
-
+/*
   getNuevaSucursal(){
     this.analisisServ.getAnalisisNuevaSucursal().subscribe({
       next: data => {
@@ -74,20 +74,20 @@ export class AnalisisComponent {
       }
     });
   }
-
+*/
   descripcion='asdfasdfawefaw'
 
   single = [
     {
-      "name": "Estimado de envios Envios",
+      "name": "Estimado de envios realizados por nuevos vehiculos",
       "value": 50,      
     },
     {
-      "name": "Estimado de Ganancias",
+      "name": "Estimado de gastos por gasolina",
       "value": 3200,
     },
     {
-      "name": "Estimado de Gastos",
+      "name": "Estimado de ganancias",
       "value": 3800,
     },
     {

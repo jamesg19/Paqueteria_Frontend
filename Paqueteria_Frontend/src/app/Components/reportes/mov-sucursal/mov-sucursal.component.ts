@@ -1,48 +1,46 @@
 import { Component, inject } from '@angular/core';
 import {SucursalService} from "../../../Servicios/sucursal.service";
-import { AnalisisService } from 'src/app/Servicios/analisis.service';
 import {Sucursal} from "../../../entidades/sucursal";
+import { ReportesService } from 'src/app/Servicios/reportes.service';
 
 @Component({
-  selector: 'app-analisis-ruta',
-  templateUrl: './analisis-ruta.component.html',
-  styleUrls: ['./analisis-ruta.component.css']
+  selector: 'app-mov-sucursal',
+  templateUrl: './mov-sucursal.component.html',
+  styleUrls: ['./mov-sucursal.component.css']
 })
-export class AnalisisRutaComponent {
-  sucursalForm: string = '';
-  sucursales: string[] = [''];
-  distancias: string[] = [''];
+export class MovSucursalComponent {
+  sucursalForm: string = '';  
   sucursalServ = inject(SucursalService);
-  sucursalesSelect:Sucursal[];
-  analisisServ = inject(AnalisisService);
-  descripcion='';
-  recomendacion = '';
-  datos: any[];;
+  sucursalesSelect:Sucursal[];  
+  datos: any[];
   multiDatos: any[];
+  fechaAnalizar: any;
+  datostable1: any[];
+  datostable2: any[];
+  datostable3: any[];
 
   constructor(){
     this.getSucursales();
   }
-
-  agregarSucursal() {
-    this.sucursales.push('');
-    this.distancias.push('');
+  
+  enviarFormulario(){
+    console.log("Enviar formulario");
+    this.getReporte();
   }
 
-  quitarSucursal(index: number) {
-    if (this.sucursales.length > 1) {
-      this.sucursales.splice(index, 1);
-      this.distancias.splice(index, 1);
-    }
-  }
-
-  enviarFormulario() {
-    // Agrega la lógica de envío del formulario según tus necesidades
-    console.log('Sucursales:', this.sucursales);
-    console.log('Distancias:', this.distancias);
-    this.getNuevaSucursal();
-    console.log('Descripcion: ', this.descripcion);
-    console.log('Sucursal Origen: ', this.sucursalForm)
+  reportesServ = inject(ReportesService);  
+  getReporte(){
+    this.reportesServ.getReporteMovSucursal(this.fechaAnalizar,this.sucursalForm).subscribe({
+      next: data => {
+        this.datos = data.datos;
+        this.datostable1 = data.datostable1;
+        this.datostable2 = data.datostable2;
+        this.datostable3 = data.datostable3;
+      },
+      error: err => {
+        console.log("Error:",err)
+      }
+    });
   }
 
   getSucursales(){
@@ -54,32 +52,20 @@ export class AnalisisRutaComponent {
       }
     });
   }
+  
 
-  getNuevaSucursal(){
-    this.analisisServ.getAnalisisNuevasRuta(this.sucursalForm,this.sucursales,this.distancias).subscribe({
-      next: data => {
-        this.descripcion = data.descripcion;
-        this.recomendacion = data.recomendacion;
-        this.datos = data.datos;
-        this.multiDatos = data.multiDatos;
-      },
-      error: err => {
-        console.log(err)
-      }
-    });
-  }
 
   single = [
     {
-      "name": "Estimado de envios Envios",
+      "name": "Estimado de envios realizados por nuevos vehiculos",
       "value": 50,      
     },
     {
-      "name": "Estimado de Ganancias",
+      "name": "Estimado de gastos por gasolina",
       "value": 3200,
     },
     {
-      "name": "Estimado de Gastos",
+      "name": "Estimado de ganancias",
       "value": 3800,
     },
     {
@@ -102,8 +88,6 @@ export class AnalisisRutaComponent {
   onSelectCards(event:any) {
     console.log(event);
   }
-
-
 
   multi = [
     {
