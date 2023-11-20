@@ -9,7 +9,7 @@ export class Envio {
   idSucursalDestino:number;
   sucursalDestino:Sucursal;
   nitEmisor:number;
-  personEmisor:Persona;
+  personaEmisor:Persona;
   nitReceptor:number;
   personaReceptor:Persona;
   fechaLlegada:string;

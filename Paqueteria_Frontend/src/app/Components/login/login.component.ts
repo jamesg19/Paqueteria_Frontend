@@ -27,7 +27,8 @@ export class LoginComponent {
         localStorage.setItem("ROL_PAQUETERIA",data.rol);
         localStorage.setItem("NOMBRE_PAQUETERIA",data.nombre);
         localStorage.setItem("ID_PAQUETERIA",data.id+"");
-        alert("Login exitoso")
+        alert("Login exitoso"),
+        this.router.navigate(['/']);
       },
       error=>{
         if(error.HttpStatusCode=409){

@@ -37,5 +37,9 @@ export class RutaService {
     return this.httpClient.get<RutaOptima>(`${this.baseUrl}/ruta_optima/get_ruta?origen=${origen}&destino=${destino}`);
   }
 
+  saveRutass( ruta:Ruta):Observable<Ruta>{
+    return this.httpClient.post<Ruta>(`${this.baseUrl}/rutas/save_rutas`,ruta);
+  }
+
 
 }

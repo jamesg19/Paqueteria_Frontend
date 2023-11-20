@@ -1,0 +1,97 @@
+<div>
+
+<form [formGroup]="rutasForm" (ngSubmit)="onSubmit()" >
+
+    <div class="container">
+        <br><br><br><br><br>
+            <!-- Otros campos de formulario si los tienes -->
+            <div class="centered-content" formGroupName="ruta">
+
+                <h2>Crear ruta</h2>
+                <table class="table">
+
+                    <tbody>
+
+                        
+                        <br>
+                        <tr>
+                            <th>
+                                Sucursal Origen:
+                            </th>
+                            <th >
+                                <select class="custom-select" id="sucursalOrigen" formControlName="sucursalOrigen">
+                                    <option *ngFor="let sucursal of sucursales" [ngValue]="sucursal.idSucursal">{{sucursal.idSucursal}}-{{sucursal.nombre}},{{sucursal.municipio.nombre}},{{sucursal.departamento.nombre}}</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Sucursal Destino:
+                            </th>
+                            <th >
+                                <select class="custom-select" id="sucursalDestino" formControlName="sucursalDestino">
+                                    <option *ngFor="let sucursal of sucursales" [ngValue]="sucursal.idSucursal">{{sucursal.idSucursal}}-{{sucursal.nombre}},{{sucursal.municipio.nombre}},{{sucursal.departamento.nombre}}</option>
+                                </select>
+                            </th>
+                        </tr>
+                        
+                        <tr>
+                            <th>
+                                Distancia:
+                            </th>
+                            <th >
+                                <input type="number" min="0" class="form-control" formControlName="distancia">
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                Dias:
+                            </th>
+                            <th >
+                                <input type="number" step="1" min="0" class="form-control" formControlName="dias">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Costo:
+                            </th>
+                            <th >
+                                <input type="number" step="1" min="0" class="form-control" formControlName="costo">
+                            </th>
+                        </tr>
+
+
+
+
+
+
+
+
+                        <tr>
+                            <th></th>
+                            <th><button class="btn btn-info"  type="submit" >Enviar</button></th>
+                        </tr>
+
+
+
+
+
+
+
+
+
+                    </tbody>
+                  <label>{{resultado}}</label>
+                </table>
+
+
+
+            </div>
+            <app-map></app-map>
+
+
+    </div>
+
+    </form>
+</div>
