@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PersonaService } from 'src/app/Servicios/persona.service';
 import { Persona } from 'src/app/entidades/persona';
 
@@ -10,7 +11,7 @@ import { Persona } from 'src/app/entidades/persona';
 })
 export class LoginComponent {
 
-  constructor(private personaServicio:PersonaService){
+  constructor(private personaServicio:PersonaService, private router:Router){
 
   }
 
@@ -23,7 +24,10 @@ export class LoginComponent {
     login.password=password.value;
     this.personaServicio.login(login).subscribe(
       data=>{
-        alert("Exito")
+        localStorage.setItem("ROL_PAQUETERIA",data.rol);
+        localStorage.setItem("NOMBRE_PAQUETERIA",data.nombre);
+        localStorage.setItem("ID_PAQUETERIA",data.id+"");
+        alert("Login exitoso")
       },
       error=>{
         if(error.HttpStatusCode=409){
@@ -31,6 +35,15 @@ export class LoginComponent {
         }
       }
     )
+  }
+
+  logout(){
+    
+    localStorage.removeItem("ROL_PAQUETERIA");
+    localStorage.removeItem("NOMBRE_PAQUETERIA");
+    localStorage.removeItem("ID_PAQUETERIA");
+    this.router.navigate(['/']);     
+    
   }
 
 }

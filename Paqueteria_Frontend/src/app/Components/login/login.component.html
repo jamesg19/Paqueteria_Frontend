@@ -4,7 +4,7 @@
     <div class="col">
         <div class="login-container">
             <h2>Iniciar Sesión</h2>
-            <form class="login-form"  method="post">
+            <form class="login-form" (ngSubmit)="login()" method="post">
                 <div class="form-group">
                     <label for="usuario">Usuario:</label>
                     <input type="text" [id]="'id'"  required>
