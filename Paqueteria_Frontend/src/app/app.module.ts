@@ -7,7 +7,6 @@ import { CrearEnvioComponent } from './Components/envios/crear-envio/crear-envio
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MapComponent } from './Components/map/map.component';
-import { AgregarVehiculosComponent } from './Components/agregar-vehiculos/agregar-vehiculos.component';
 import { AgregarPersonalComponent } from './Components/agregar-personal/agregar-personal.component';
 import { AgregarSucursalComponent } from './Components/Sucursal/agregar-sucursal/agregar-sucursal.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,6 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnalisisRutaComponent } from './Components/analisis/analisis-ruta/analisis-ruta.component';
 import { AnalisisSucursalComponent } from './Components/analisis/analisis-sucursal/analisis-sucursal.component';
 import { AnalisisVehiculosComponent } from './Components/analisis/analisis-vehiculos/analisis-vehiculos.component';
+import { AgregarVehiculoComponent } from './Components/Vehiculos/agregar-vehiculo/agregar-vehiculo.component';
+import { EditarVehiculoComponent } from './Components/Vehiculos/editar-vehiculo/editar-vehiculo.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,6 @@ import { AnalisisVehiculosComponent } from './Components/analisis/analisis-vehic
     CrearEnvioComponent,
     NavbarComponent,
     MapComponent,
-    AgregarVehiculosComponent,
     AgregarPersonalComponent,
     AgregarSucursalComponent,
     EditScucursalComponent,
@@ -48,7 +48,9 @@ import { AnalisisVehiculosComponent } from './Components/analisis/analisis-vehic
     AnalisisComponent,
     AnalisisRutaComponent,
     AnalisisSucursalComponent,
-    AnalisisVehiculosComponent
+    AnalisisVehiculosComponent,
+    AgregarVehiculoComponent,
+    EditarVehiculoComponent
   ],
     imports: [
         BrowserModule,
