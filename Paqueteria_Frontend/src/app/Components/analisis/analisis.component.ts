@@ -45,7 +45,7 @@ export class AnalisisComponent {
     console.log('Latitud:', this.latitud);
     console.log('Cantidad Vehiculos:', this.cantidadVehiculos);
     console.log('Cantidad Personal:', this.cantidadPersonal);
-    this.getNuevaSucursal();
+    //this.getNuevaSucursal();
     console.log('Descripcion: ', this.descripcion);
   }
 
@@ -63,7 +63,7 @@ export class AnalisisComponent {
       }
     });
   }
-
+/*
   getNuevaSucursal(){
     this.analisisServ.getAnalisisNuevaSucursal().subscribe({
       next: data => {
@@ -74,7 +74,7 @@ export class AnalisisComponent {
       }
     });
   }
-
+*/
   descripcion='asdfasdfawefaw'
 
   single = [

@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import {SucursalService} from "../../../Servicios/sucursal.service";
 import {Sucursal} from "../../../entidades/sucursal";
+import { ReportesService } from 'src/app/Servicios/reportes.service';
 
 @Component({
   selector: 'app-mov-sucursal',
@@ -14,6 +15,9 @@ export class MovSucursalComponent {
   datos: any[];
   multiDatos: any[];
   fechaAnalizar: any;
+  datostable1: any[];
+  datostable2: any[];
+  datostable3: any[];
 
   constructor(){
     this.getSucursales();
@@ -21,22 +25,22 @@ export class MovSucursalComponent {
   
   enviarFormulario(){
     console.log("Enviar formulario");
-    this.getReporteSucursal();
+    this.getReporte();
   }
 
-  getReporteSucursal(){    
-    /*this.analisisServ.getAnalisisNuevosVehiculos(this.cantidadVehiculos,this.sucursalForm).subscribe({
+  reportesServ = inject(ReportesService);  
+  getReporte(){
+    this.reportesServ.getReporteMovSucursal(this.fechaAnalizar,this.sucursalForm).subscribe({
       next: data => {
-        this.descripcion = data.descripcion;
-        this.recomendacion = data.recomendacion;
         this.datos = data.datos;
-        this.multiDatos = data.multiDatos;
+        this.datostable1 = data.datostable1;
+        this.datostable2 = data.datostable2;
+        this.datostable3 = data.datostable3;
       },
       error: err => {
-        console.log(err)
+        console.log("Error:",err)
       }
     });
-    */
   }
 
   getSucursales(){

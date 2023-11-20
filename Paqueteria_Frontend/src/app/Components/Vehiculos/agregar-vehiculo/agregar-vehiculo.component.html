@@ -1,0 +1,158 @@
+<form [formGroup]="vehiculoForm" (ngSubmit)="onSubmit()">
+
+    <div class="container">
+        <br><br><br><br><br>
+            <!-- Otros campos de formulario si los tienes -->
+            <div class="centered-content" formGroupName="vehiculo">
+                <h2>Agregar vehiculos</h2>
+
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <br>
+                        </tr>
+                        <tr>
+                            <th>
+                                Sucursal :
+                            </th>
+                            <th >
+                                <select  class="custom-select" id="sucursalId"  required formControlName="sucursalId">
+                                    <option *ngFor="let item of sucursales"  [value]="item.idSucursal">{{item.idSucursal}}, {{item.nombre}}</option>
+
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Marca:
+                            </th>
+                            <th >
+                                <select  class="custom-select" id="marca"  required formControlName="marca">
+                                    <option  value="Mercedez Benz">Mercedez Benz</option>
+                                    <option  value="Kia">Kia</option>
+                                    <option  value="toyota">Toyota</option>
+                                    <option  value="Mitsubishi Fuso">Mitsubishi</option>
+                                    <option  value="Ford">Ford</option>
+                                    <option  value="Hino">Hino</option>
+                                    <option  value="Isuzu">Isuzu</option>
+                                    <option  value="Subaru">Subaru</option>
+                                    <option  value="Nissan">Nissan</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Tipo:
+                            </th>
+                            <th >
+                                <select  class="custom-select" id="tipo"  required formControlName="tipo">
+
+                                    <option  value="Kia">Camion</option>
+                                    <option  value="toyota">Pickup</option>
+                                    <option  value="Mitsubishi">Moto</option>
+                                    <option  value="Ford">Panel</option>
+
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Placa:
+                            </th>
+                            <th >
+                                <input type="String" min=0 class="form-control"  formControlName="placa" placeholder="P-123GTQ" >
+                            </th>
+                        </tr>
+
+
+                        <tr>
+                            <th>
+                                Tonelage:
+                            </th>
+                            <th >
+                                <input type="number" min=0 class="form-control"  formControlName="tonelage" >
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Año:
+                            </th>
+                            <th >
+                                <input type="number" min=0 class="form-control"  formControlName="anio" >
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Cantidad Asientos:
+                            </th>
+                            <th >
+                                <input type="number" min=0 step=1 class="form-control"  formControlName="noAsientos" >
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Capacidad Volumen(mt^3):
+                            </th>
+                            <th >
+                                <input type="number" min=0  class="form-control"  formControlName="capacidadVol" >
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Capacidad (Toneladas):
+                            </th>
+                            <th >
+                                <input type="number" min=0  class="form-control"  formControlName="capacidadTon" >
+                            </th>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <th></th>
+                            <th><button class="btn btn-info"  type="submit">Enviar</button></th>
+                        </tr>
+
+
+
+
+
+                        <tr>
+                            <div *ngIf="flag == 2" class="alert alert-success" role="alert">
+                                <h4 class="alert-heading">Bien hecho!</h4>
+                                <p>vEHICULO AGREGADO EXITOSAMENTE</p>
+                                <hr>
+                                <p class="mb-0"></p>
+                              </div>
+                              <div *ngIf="flag == 1" class="alert alert-danger" role="alert">
+                                <h4 class="alert-heading">NO SE PUDO AGREGAR EL VEHICULO</h4>
+                                <p>sin enviar</p>
+                                <hr>
+                                <p class="mb-0"></p>
+                              </div>
+
+                        </tr>
+
+
+
+
+                    </tbody>
+                </table>
+
+
+
+            </div>
+            <app-map></app-map>
+
+
+    </div>
+
+    </form>

@@ -83,13 +83,22 @@ onSubmit(){
     envio.idSucursalDestino = this.createShipForm.get("ships.sucursal_destino_id").value;
     envio.nitEmisor = this.createShipForm.get("ships.nit_emisor").value;
     envio.nitReceptor = this.createShipForm.get("ships.nit_receptor").value;
+    envio.fecha = this.createShipForm.get("ships.fecha_envio").value
+    envio.peso = this.createShipForm.get("ships.peso").value;
     envio.fecha = this.createShipForm.get("ships.fecha_envio").value;
     envio.subTotal = this.createShipForm.get("ships.tarifa_id").value;
-    envio.estado = "enRuta";
-    envio.diasTranscurridos = 0;
-    console.log(envio);
+    envio.estado ="enRuta";
 
-    this.validacionEnvioSucursales(envio);
+    this.envioServ.save(envio).subscribe({
+      next: data => {
+        this.resultado = "Envio Exitoso";
+        alert("Tu numero de rastreo de envio es:"+data.id)
+      },
+      error: err => {
+        console.log(err);
+        this.resultado = err.value;
+      }
+    });
 }
 
 

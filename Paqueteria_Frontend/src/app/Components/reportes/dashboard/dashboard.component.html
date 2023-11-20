@@ -1,4 +1,4 @@
-<form [formGroup]="formulario" (ngSubmit)="enviarFormularioFecha()" class="form">
+<form class="form">
 
     <div>
         <h1>Dashboard del mes</h1>        
@@ -13,7 +13,7 @@
   
     <div>
         <!-- Botón para enviar el formulario (puedes agregar lógica según tus necesidades) -->
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="button" (click)="enviarFormulario()" class="btn btn-primary enviar">Enviar</button>
     </div>
 </form>
 
@@ -24,13 +24,14 @@
         <div class="graph">
             <h2>Datos generales</h2>
             <ngx-charts-number-card
-            [results]="single"
+            [results]="datosgenerales"
             [view]="view"
             [cardColor]="cardColor"            
             >
             </ngx-charts-number-card>
         </div>
 
+        <!-- 
         <div class="graph">
             <h3>Grafico de ganancias y gastos</h3>
             <ngx-charts-line-chart
@@ -50,12 +51,13 @@
               >
             </ngx-charts-line-chart>
         </div>
+        -->
 
         <div class="graph">
             <h3>Grafico de gastos generales</h3>
             <ngx-charts-pie-chart
               [view]="view"              
-              [results]="single"              
+              [results]="datosgastosgenerales"              
               [legend]="showLegend"              
               [labels]="showLabels3"
               [doughnut]="isDoughnut"
@@ -70,7 +72,7 @@
             <h3>Grafico de gastos especiales</h3>
             <ngx-charts-pie-chart
               [view]="view"              
-              [results]="single"              
+              [results]="datosgastosespeciales"              
               [legend]="showLegend"              
               [labels]="showLabels3"
               [doughnut]="isDoughnut"
@@ -85,7 +87,7 @@
             <h3>Sucursales con mas ganancias</h3>
             <ngx-charts-bar-vertical
               [view]="view4"              
-              [results]="single"
+              [results]="datossucursalesganancias"
               [gradient]="gradient4"
               [xAxis]="showXAxis4"
               [yAxis]="showYAxis4"
@@ -102,7 +104,7 @@
             <h3>Sucursales con menos ganancias</h3>
             <ngx-charts-bar-vertical
               [view]="view4"              
-              [results]="single"
+              [results]="datossucursalesmenosganancias"
               [gradient]="gradient4"
               [xAxis]="showXAxis4"
               [yAxis]="showYAxis4"

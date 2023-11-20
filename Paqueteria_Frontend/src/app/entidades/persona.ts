@@ -6,6 +6,8 @@ export class Persona{
     domicilio:string;
     celular:string;
     nit:string;
+    password:string;
+    rol:string;
 
     constructor() {
       this.id = 0;

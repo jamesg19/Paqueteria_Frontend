@@ -46,9 +46,9 @@ export class MapaCoordenadaComponent {
   private async iniciarMapa() {
 
 
-
-    this.map = L.map('map').setView([13.811912249339883,-89.8681640625], 4);
-
+    
+    this.map = L.map('map').setView([15.290100, -90.568587], 8);
+    
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
@@ -59,16 +59,13 @@ const puntoB = [14.300459, -90.785193];//Escuintla
 const puntoC = [15.801999, -91.316643];//Barillas
 const puntoD= [13.924807, -90.821041];//Puerto quetzal
 
-this.getRoute(puntoA,puntoB,'blue');
-this.getRoute(puntoA,puntoC,'red');
-this.getRoute(puntoB,puntoD,'blue');
 
-this.addPointInMap('Sucursal Coatepeque',puntoA);
-this.addPointInMap('Sucursal Escuintla',puntoB);
-this.addPointInMap('Sucursal Barillas',puntoC);
-this.addPointInMap('Sucursal puerto Quetzal',puntoD);
-    console.log("Punto A")
-    console.log(puntoA);
+
+//this.addPointInMap('Sucursal Coatepeque',puntoA);
+//this.addPointInMap('Sucursal Escuintla',puntoB);
+//this.addPointInMap('Sucursal Barillas',puntoC);
+//this.addPointInMap('Sucursal puerto Quetzal',puntoD);
+
 
 
     for(let i=0;i<this.rutaOneWay.length;i++){
@@ -84,7 +81,7 @@ this.addPointInMap('Sucursal puerto Quetzal',puntoD);
       console.log(pointDestino);
       //agregar ruta en carretera
       //this.getRoute(pointOrigen,pointDestino,'blue');
-      //await this.sleep(450);
+      await this.sleep(35);
       //agregar ruta de origen y destino en el mapa
 
       this.addPointInMap(this.rutaOneWay[i].origen.nombre,pointOrigen);
@@ -135,24 +132,7 @@ this.addPointInMap('Sucursal puerto Quetzal',puntoD);
   }
 
 
+  
 
-  /*
-
-  map: L.Map;
-
-  constructor() { }
-
-  ngOnInit() {
-    this.initMap();
-  }
-
-  initMap() {
-    this.map = L.map('map').setView([15.511912249339883,-89.8681640625], 8); // Coordenadas para centrar el mapa en Washington D.C.
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(this.map);
-
-  }*/
 
 }
