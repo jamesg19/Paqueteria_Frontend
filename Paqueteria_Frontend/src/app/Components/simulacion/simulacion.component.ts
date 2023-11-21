@@ -5,6 +5,7 @@ import { EnvioAtrasado } from 'src/app/entidades/envio-atrasado';
 import { HistorialVehiculo } from 'src/app/entidades/historial-vehiculo';
 import { HistoricoSucursal } from 'src/app/entidades/historico-sucursal';
 import { Simulacion } from 'src/app/entidades/simulacion';
+import {ReporteSimulacion} from "../../entidades/reporte-simulacion";
 
 @Component({
   selector: 'app-simulacion',
@@ -18,6 +19,7 @@ export class SimulacionComponent {
     historicoSucursal:HistoricoSucursal[];
     historicoVehiculo:HistorialVehiculo[];
     envioAtrasado:EnvioAtrasado[];
+    reporte:ReporteSimulacion[];
 
 
   constructor(private simularService:SimulacionService){
@@ -33,11 +35,19 @@ export class SimulacionComponent {
         this.historicoSucursal=this.simularList.historicoSucursal
         this.historicoVehiculo=this.simularList.historicoVehiculo
         this.envioAtrasado=this.simularList.envioAtrasado
-
+        this.simularService.reportes().subscribe({
+          next:data=>{
+            this.reporte=data;
+            console.log("Reporte ");
+            console.log(data);
+          },
+          error:err => console.log(err)
+        });
       }, error=>{
 
       }
-    )
+    );
+
   }
 
 }

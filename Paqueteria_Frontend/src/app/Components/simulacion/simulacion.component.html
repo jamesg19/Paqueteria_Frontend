@@ -11,6 +11,7 @@
                     <thead class="thead-dark">
                         <tr>
                           <th>Id</th>
+                          <th>Estado</th>
                           <th>Origen</th>
                           <th>Destino</th>
                           <th>Nit emisor</th>
@@ -19,12 +20,15 @@
                           <th>Dias transcurridos</th>
 
                         </tr>
-                        </thead>    
+                        </thead>
                     <tbody>
 
                         <tr *ngFor="let item of envios">
                           <th>
                             {{item.id}}
+                          </th>
+                          <th>
+                            {{item.estado}}
                           </th>
                           <th>
                             {{item.sucursalOrigen.nombre}}
@@ -38,6 +42,12 @@
                         <th>
                             {{item.personaReceptor.nombre}}
                         </th>
+                          <th>
+                            {{item.fecha}}
+                          </th>
+                          <th>
+                            {{item.diasTranscurridos}}
+                          </th>
                         </tr>
 
                     </tbody>
@@ -55,7 +65,7 @@
                           <th>Fecha</th>
 
                         </tr>
-                        </thead>    
+                        </thead>
                     <tbody>
 
                         <tr *ngFor="let item of historicoSucursal">
@@ -92,7 +102,7 @@
                           <th>fecha</th>
 
                         </tr>
-                        </thead>    
+                        </thead>
                     <tbody>
 
                         <tr *ngFor="let item of historicoVehiculo">
@@ -111,7 +121,7 @@
                             <th>
                               {{item.fecha}}
                             </th>
-  
+
                           </tr>
 
                     </tbody>
@@ -126,7 +136,7 @@
                           <th>Id envio</th>
                           <th>Id sucursal</th>
                         </tr>
-                        </thead>    
+                        </thead>
                     <tbody>
 
                         <tr *ngFor="let item of envioAtrasado">
@@ -140,12 +150,50 @@
                               {{item.idSucursal}}
                             </th>
 
-  
+
                           </tr>
 
                     </tbody>
 
                 </table>
+
+              <h2>Reportes</h2>
+              <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                  <th>origen</th>
+                  <th>destino</th>
+                  <th>vehiculo</th>
+                  <th>#envios</th>
+                  <th>ocupacion</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr *ngFor="let item of reporte">
+                  <th>
+                    {{item.origen}}
+                  </th>
+                  <th>
+                    {{item.destino}}
+                  </th>
+                  <th>
+                    {{item.vehiculo}}
+                  </th>
+                  <th>
+                    {{item.numeroEnviados}}
+                  </th>
+
+                  <th>
+                    {{item.ocupacion}}
+                  </th>
+
+
+                </tr>
+
+                </tbody>
+
+              </table>
 
 
 
