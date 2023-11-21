@@ -5,7 +5,7 @@
     <label>Variables de experimentacion</label>
     <tr>
       <th>Id</th>
-      <th>Descripcion</th>
+      <th>Descripcion  </th>
       <th>Valor</th>
     </tr>
     </thead>
@@ -22,10 +22,9 @@
         {{variable.descripcion}}
       </th>
       <th>
-        
-          <br>
+
           <input type="number" placeholder="Nuevo nombre" [id]="variable.id" [value]="variables[i].valor">
-       
+
       </th>
       <th>
         <button type="submit" (click)="guardar(variable.id,variable.descripcion)">Guardar</button>
