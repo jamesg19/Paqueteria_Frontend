@@ -22,10 +22,13 @@
         {{variable.descripcion}}
       </th>
       <th>
-        <label>{{variable.valor}}
+        
           <br>
-          <input placeholder="Nuevo nombre" [(ngModel)]="variables[i].valor">
-        </label>
+          <input type="number" placeholder="Nuevo nombre" [id]="variable.id" [value]="variables[i].valor">
+       
+      </th>
+      <th>
+        <button type="submit" (click)="guardar(variable.id,variable.descripcion)">Guardar</button>
       </th>
     </tr>
 
