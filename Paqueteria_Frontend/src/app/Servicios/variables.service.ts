@@ -13,7 +13,7 @@ export class VariablesService {
   private httpClient = inject(HttpClient);
 
   public save(variable:Variables,id):Observable<Variables>{
-    return this.httpClient.post<Variables>(`${this.baseUrl}/update?id=${id}`,variable);
+    return this.httpClient.put<Variables>(`${this.baseUrl}/update?id=${id}`,variable);
   }
 
   public getAll():Observable<Variables[]>{
