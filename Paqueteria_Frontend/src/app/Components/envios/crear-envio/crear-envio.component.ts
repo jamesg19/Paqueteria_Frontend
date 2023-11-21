@@ -64,8 +64,8 @@ buscarPersonaEmisor(){
             sucursal_origen_id:  new FormControl("", Validators.required),
             sucursal_destino_id:  new FormControl("", Validators.required),
             cantidad_paquetes:  [1],
-            peso:  [1],
-            fecha_envio:  [" "],
+            peso:  [750],
+            fecha_envio:  ["2023-11-21"],
             tarifa_id:  [1],
             nit_receptor: new FormControl("", Validators.required),
             nit_emisor: new FormControl("", Validators.required)
@@ -89,16 +89,7 @@ onSubmit(){
     envio.subTotal = this.createShipForm.get("ships.tarifa_id").value;
     envio.estado ="enRuta";
 
-    this.envioServ.save(envio).subscribe({
-      next: data => {
-        this.resultado = "Envio Exitoso";
-        alert("Tu numero de rastreo de envio es:"+data.id)
-      },
-      error: err => {
-        console.log(err);
-        this.resultado = err.value;
-      }
-    });
+    this.validacionEnvioSucursales(envio);
 }
 
 
